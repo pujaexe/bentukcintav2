@@ -1,0 +1,40 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  background: var(--token-LqpCVPPZF4_r);
+  padding-top: 32px;
+  padding-bottom: 32px;
+  min-width: 0;
+}
+.freeBox {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 24px;
+}
+.link__vYlGu {
+  width: auto;
+}
+.img__ikaF2 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: auto;
+}
+.img__ikaF2 > picture > img {
+  object-fit: cover;
+}
+.img__ikaF2 > :global(.__wab_img-spacer) > img {
+  object-fit: cover;
+}

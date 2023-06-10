@@ -126,6 +126,19 @@
           "cssFilePath": "plasmic/bentuk_cintav_2/PlasmicWhatsappButton.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "01XWUA7Wd5",
+          "name": "ImagePreview",
+          "type": "managed",
+          "projectId": "62fk78rY9xoShC3bnaKgA9",
+          "renderModuleFilePath": "plasmic/bentuk_cintav_2/PlasmicImagePreview.tsx",
+          "importSpec": {
+            "modulePath": "ImagePreview.tsx"
+          },
+          "cssFilePath": "plasmic/bentuk_cintav_2/PlasmicImagePreview.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

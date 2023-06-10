@@ -99,6 +99,19 @@ function PlasmicInvitation__RenderFunc(props: {
 
   const [$queries, setDollarQueries] = React.useState({});
 
+  const stateSpecs = React.useMemo(
+    () => [
+      {
+        path: "template1.previewPopup",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      }
+    ],
+    [$props, $ctx]
+  );
+  const $state = p.useDollarState(stateSpecs, { $props, $ctx, $queries });
+
   return (
     <React.Fragment>
       <Head></Head>
@@ -149,6 +162,14 @@ function PlasmicInvitation__RenderFunc(props: {
                       data-plasmic-name={"template1"}
                       data-plasmic-override={overrides.template1}
                       className={classNames("__wab_instance", sty.template1)}
+                      onPreviewPopupChange={p.generateStateOnChangeProp(
+                        $state,
+                        ["template1", "previewPopup"]
+                      )}
+                      previewPopup={p.generateStateValueProp($state, [
+                        "template1",
+                        "previewPopup"
+                      ])}
                     />
                   </div>
                 )}

@@ -37,6 +37,7 @@ import {
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
 import YouTube from "@plasmicpkgs/react-youtube"; // plasmic-import: CHO21V9uYw/codeComponent
+import ImagePreview from "../../ImagePreview"; // plasmic-import: 01XWUA7Wd5/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components"; // plasmic-import: PKldDYkH42/codeComponent
 import { Iframe } from "@plasmicpkgs/plasmic-basic-components"; // plasmic-import: CMDBvOhaI4s/codeComponent
 import Button from "../../Button"; // plasmic-import: 02HmyteR4qq/component
@@ -59,9 +60,15 @@ export type PlasmicTemplate1__VariantsArgs = {};
 type VariantPropType = keyof PlasmicTemplate1__VariantsArgs;
 export const PlasmicTemplate1__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicTemplate1__ArgsType = {};
+export type PlasmicTemplate1__ArgsType = {
+  previewPopup?: boolean;
+  onPreviewPopupChange?: (val: boolean) => void;
+};
 type ArgPropType = keyof PlasmicTemplate1__ArgsType;
-export const PlasmicTemplate1__ArgProps = new Array<ArgPropType>();
+export const PlasmicTemplate1__ArgProps = new Array<ArgPropType>(
+  "previewPopup",
+  "onPreviewPopupChange"
+);
 
 export type PlasmicTemplate1__OverridesType = {
   root?: p.Flex<"div">;
@@ -78,6 +85,7 @@ export type PlasmicTemplate1__OverridesType = {
   contentWrapper2?: p.Flex<"div">;
   title2?: p.Flex<"div">;
   youTube?: p.Flex<typeof YouTube>;
+  imagePreview?: p.Flex<typeof ImagePreview>;
   embedHtml?: p.Flex<typeof Embed>;
   map?: p.Flex<"div">;
   contentWrapper3?: p.Flex<"div">;
@@ -86,11 +94,12 @@ export type PlasmicTemplate1__OverridesType = {
   button?: p.Flex<typeof Button>;
   footer?: p.Flex<"div">;
   whatsappButton?: p.Flex<typeof WhatsappButton>;
-  link?: p.Flex<"a"> & Partial<LinkProps>;
   svg?: p.Flex<"svg">;
 };
 
 export interface DefaultTemplate1Props {
+  previewPopup?: boolean;
+  onPreviewPopupChange?: (val: boolean) => void;
   className?: string;
 }
 
@@ -130,6 +139,21 @@ function PlasmicTemplate1__RenderFunc(props: {
   const currentUser = p.useCurrentUser?.() || {};
 
   const [$queries, setDollarQueries] = React.useState({});
+
+  const stateSpecs = React.useMemo(
+    () => [
+      {
+        path: "previewPopup",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "previewPopup",
+        onChangeProp: "onPreviewPopupChange"
+      }
+    ],
+    [$props, $ctx]
+  );
+  const $state = p.useDollarState(stateSpecs, { $props, $ctx, $queries });
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariants_7YtAkblAUxFb()
@@ -1024,6 +1048,77 @@ function PlasmicTemplate1__RenderFunc(props: {
                   displayMinWidth={"0" as const}
                   displayWidth={"300px" as const}
                   loading={"lazy" as const}
+                  onClick={async event => {
+                    const $steps = {};
+                    $steps["updateVariable"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: __wrapUserFunction(
+                              {
+                                type: "InteractionArgLoc",
+                                actionName: "updateVariable",
+                                interactionUuid: "JGNnMQBWn",
+                                componentUuid: "tCLmdV1-a5",
+                                argName: "variable"
+                              },
+                              () => ({
+                                objRoot: $state,
+                                variablePath: ["previewPopup"]
+                              })
+                            ),
+                            operation: __wrapUserFunction(
+                              {
+                                type: "InteractionArgLoc",
+                                actionName: "updateVariable",
+                                interactionUuid: "JGNnMQBWn",
+                                componentUuid: "tCLmdV1-a5",
+                                argName: "operation"
+                              },
+                              () => 4
+                            )
+                          };
+                          return __wrapUserFunction(
+                            {
+                              type: "InteractionLoc",
+                              actionName: "updateVariable",
+                              interactionUuid: "JGNnMQBWn",
+                              componentUuid: "tCLmdV1-a5"
+                            },
+                            () =>
+                              (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                const oldValue = p.get(objRoot, variablePath);
+                                p.set(objRoot, variablePath, !oldValue);
+                                return !oldValue;
+                              })?.apply(null, [actionArgs]),
+                            actionArgs
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      typeof $steps["updateVariable"] === "object" &&
+                      typeof $steps["updateVariable"].then === "function"
+                    ) {
+                      $steps["updateVariable"] = await __wrapUserPromise(
+                        {
+                          type: "InteractionLoc",
+                          actionName: "updateVariable",
+                          interactionUuid: "JGNnMQBWn",
+                          componentUuid: "tCLmdV1-a5"
+                        },
+                        $steps["updateVariable"]
+                      );
+                    }
+                  }}
                   src={(() => {
                     try {
                       return currentItem.photoGallery;
@@ -1038,6 +1133,143 @@ function PlasmicTemplate1__RenderFunc(props: {
                     }
                   })()}
                 />
+
+                {(() => {
+                  try {
+                    return $state.previewPopup;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <ImagePreview
+                    data-plasmic-name={"imagePreview"}
+                    data-plasmic-override={overrides.imagePreview}
+                    className={classNames("__wab_instance", sty.imagePreview)}
+                    slot={
+                      <p.PlasmicLink
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.a,
+                          projectcss.__wab_text,
+                          sty.link__n7Oiq
+                        )}
+                        component={Link}
+                        href={"https://www.plasmic.app/" as const}
+                        onClick={async event => {
+                          const $steps = {};
+                          $steps["updatePreviewPopup"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: __wrapUserFunction(
+                                    {
+                                      type: "InteractionArgLoc",
+                                      actionName: "updateVariable",
+                                      interactionUuid: "FeuDSxTLcS",
+                                      componentUuid: "tCLmdV1-a5",
+                                      argName: "variable"
+                                    },
+                                    () => ({
+                                      objRoot: $state,
+                                      variablePath: ["previewPopup"]
+                                    })
+                                  ),
+                                  operation: __wrapUserFunction(
+                                    {
+                                      type: "InteractionArgLoc",
+                                      actionName: "updateVariable",
+                                      interactionUuid: "FeuDSxTLcS",
+                                      componentUuid: "tCLmdV1-a5",
+                                      argName: "operation"
+                                    },
+                                    () => 4
+                                  )
+                                };
+                                return __wrapUserFunction(
+                                  {
+                                    type: "InteractionLoc",
+                                    actionName: "updateVariable",
+                                    interactionUuid: "FeuDSxTLcS",
+                                    componentUuid: "tCLmdV1-a5"
+                                  },
+                                  () =>
+                                    (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      const oldValue = p.get(
+                                        objRoot,
+                                        variablePath
+                                      );
+                                      p.set(objRoot, variablePath, !oldValue);
+                                      return !oldValue;
+                                    })?.apply(null, [actionArgs]),
+                                  actionArgs
+                                );
+                              })()
+                            : undefined;
+                          if (
+                            typeof $steps["updatePreviewPopup"] === "object" &&
+                            typeof $steps["updatePreviewPopup"].then ===
+                              "function"
+                          ) {
+                            $steps["updatePreviewPopup"] =
+                              await __wrapUserPromise(
+                                {
+                                  type: "InteractionLoc",
+                                  actionName: "updateVariable",
+                                  interactionUuid: "FeuDSxTLcS",
+                                  componentUuid: "tCLmdV1-a5"
+                                },
+                                $steps["updatePreviewPopup"]
+                              );
+                          }
+                        }}
+                        platform={"nextjs"}
+                      >
+                        {"Close"}
+                      </p.PlasmicLink>
+                    }
+                  >
+                    <p.PlasmicImg
+                      alt={""}
+                      className={classNames(sty.img__tyGr4)}
+                      displayHeight={"auto" as const}
+                      displayMaxHeight={"none" as const}
+                      displayMaxWidth={"none" as const}
+                      displayMinHeight={"0" as const}
+                      displayMinWidth={"0" as const}
+                      displayWidth={"auto" as const}
+                      loading={"lazy" as const}
+                      src={(() => {
+                        try {
+                          return currentItem.photoGallery;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                    />
+                  </ImagePreview>
+                ) : null}
               </div>
             ))}
           </div>
@@ -1182,9 +1414,11 @@ function PlasmicTemplate1__RenderFunc(props: {
         className={classNames("__wab_instance", sty.whatsappButton)}
         whatsapp2={
           <p.PlasmicLink
-            data-plasmic-name={"link"}
-            data-plasmic-override={overrides.link}
-            className={classNames(projectcss.all, projectcss.a, sty.link)}
+            className={classNames(
+              projectcss.all,
+              projectcss.a,
+              sty.link__mxh1M
+            )}
             component={Link}
             href={(() => {
               try {
@@ -1234,6 +1468,7 @@ const PlasmicDescendants = {
     "contentWrapper2",
     "title2",
     "youTube",
+    "imagePreview",
     "embedHtml",
     "map",
     "contentWrapper3",
@@ -1242,7 +1477,6 @@ const PlasmicDescendants = {
     "button",
     "footer",
     "whatsappButton",
-    "link",
     "svg"
   ],
   hero: ["hero", "desc"],
@@ -1269,10 +1503,24 @@ const PlasmicDescendants = {
   man: ["man"],
   girl: ["girl"],
   dateTime: ["dateTime"],
-  gallery: ["gallery", "contentWrapper2", "title2", "youTube", "embedHtml"],
-  contentWrapper2: ["contentWrapper2", "title2", "youTube", "embedHtml"],
+  gallery: [
+    "gallery",
+    "contentWrapper2",
+    "title2",
+    "youTube",
+    "imagePreview",
+    "embedHtml"
+  ],
+  contentWrapper2: [
+    "contentWrapper2",
+    "title2",
+    "youTube",
+    "imagePreview",
+    "embedHtml"
+  ],
   title2: ["title2"],
   youTube: ["youTube"],
+  imagePreview: ["imagePreview"],
   embedHtml: ["embedHtml"],
   map: ["map", "contentWrapper3", "title3", "iframe", "button"],
   contentWrapper3: ["contentWrapper3", "title3", "iframe", "button"],
@@ -1280,8 +1528,7 @@ const PlasmicDescendants = {
   iframe: ["iframe"],
   button: ["button"],
   footer: ["footer"],
-  whatsappButton: ["whatsappButton", "link", "svg"],
-  link: ["link", "svg"],
+  whatsappButton: ["whatsappButton", "svg"],
   svg: ["svg"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -1302,6 +1549,7 @@ type NodeDefaultElementType = {
   contentWrapper2: "div";
   title2: "div";
   youTube: typeof YouTube;
+  imagePreview: typeof ImagePreview;
   embedHtml: typeof Embed;
   map: "div";
   contentWrapper3: "div";
@@ -1310,7 +1558,6 @@ type NodeDefaultElementType = {
   button: typeof Button;
   footer: "div";
   whatsappButton: typeof WhatsappButton;
-  link: "a";
   svg: "svg";
 };
 
@@ -1387,6 +1634,7 @@ export const PlasmicTemplate1 = Object.assign(
     contentWrapper2: makeNodeComponent("contentWrapper2"),
     title2: makeNodeComponent("title2"),
     youTube: makeNodeComponent("youTube"),
+    imagePreview: makeNodeComponent("imagePreview"),
     embedHtml: makeNodeComponent("embedHtml"),
     map: makeNodeComponent("map"),
     contentWrapper3: makeNodeComponent("contentWrapper3"),
@@ -1395,7 +1643,6 @@ export const PlasmicTemplate1 = Object.assign(
     button: makeNodeComponent("button"),
     footer: makeNodeComponent("footer"),
     whatsappButton: makeNodeComponent("whatsappButton"),
-    link: makeNodeComponent("link"),
     svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicTemplate1

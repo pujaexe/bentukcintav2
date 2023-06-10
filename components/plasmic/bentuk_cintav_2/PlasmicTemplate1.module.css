@@ -888,6 +888,32 @@
 .img__rYhH > :global(.__wab_img-spacer) > img {
   object-fit: cover;
 }
+.imagePreview:global(.__wab_instance) {
+  max-width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  right: 0;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+}
+.img__tyGr4 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: auto;
+}
+.img__tyGr4 > picture > img {
+  object-fit: cover;
+}
+.img__tyGr4 > :global(.__wab_img-spacer) > img {
+  object-fit: cover;
+}
+.link__n7Oiq {
+  width: auto;
+}
 .embedHtml:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
@@ -1050,7 +1076,7 @@
   z-index: 1;
   flex-shrink: 0;
 }
-.link {
+.link__mxh1M {
   position: relative;
   display: flex;
 }
