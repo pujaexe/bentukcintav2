@@ -1,0 +1,126 @@
+{
+  "platform": "nextjs",
+  "code": {
+    "lang": "ts",
+    "scheme": "blackbox",
+    "reactRuntime": "classic"
+  },
+  "style": {
+    "scheme": "css-modules",
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.css"
+  },
+  "images": {
+    "scheme": "public-files",
+    "publicDir": "../public",
+    "publicUrlPrefix": "/"
+  },
+  "tokens": {
+    "scheme": "theo",
+    "tokensFilePath": "plasmic-tokens.theo.json"
+  },
+  "srcDir": "components",
+  "defaultPlasmicDir": "./plasmic",
+  "projects": [
+    {
+      "projectId": "22U3ZXm4dE59qEW488gxzU",
+      "projectApiToken": "6Bn8h6fjzGhmvB6g0gGPENLIxLtXZv8TCkr4yk9u8g3DP444nsnlSeTeX9w8LMgHNSYNJeyihR9KlT9gnlw",
+      "projectName": "plasmic-graphcms",
+      "version": "0.17.0",
+      "cssFilePath": "plasmic/plasmic_graphcms/plasmic_plasmic_graphcms.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "plasmic/plasmic_graphcms/PlasmicGlobalContextsProvider.tsx",
+      "codeComponents": [
+        {
+          "id": "8sYtOZawA08",
+          "name": "GraphCMSFetcher",
+          "displayName": "GraphCMSFetcher",
+          "componentImportPath": "@plasmicpkgs/plasmic-graphcms"
+        },
+        {
+          "id": "_3Kx5FMtA8n",
+          "name": "GraphCMSField",
+          "displayName": "GraphCMSField",
+          "componentImportPath": "@plasmicpkgs/plasmic-graphcms"
+        },
+        {
+          "id": "hNB_eBOLhAQ",
+          "name": "GraphCMSCredentialsProvider",
+          "displayName": "GraphCMSCredentialsProvider",
+          "componentImportPath": "@plasmicpkgs/plasmic-graphcms"
+        }
+      ]
+    },
+    {
+      "projectId": "62fk78rY9xoShC3bnaKgA9",
+      "projectApiToken": "WKblTbqosssGqewsCol9La3JkAF5PTzTsUHdkv1o8NKci3hggFrL115c0ydbHLVNXb4IDaalKYJ3WQhgg",
+      "projectName": "BentukCintav2",
+      "version": "latest",
+      "cssFilePath": "plasmic/bentuk_cintav_2/plasmic_bentuk_cintav_2.module.css",
+      "components": [
+        {
+          "id": "qFoMLkshDIMc",
+          "name": "Homepage",
+          "type": "managed",
+          "projectId": "62fk78rY9xoShC3bnaKgA9",
+          "renderModuleFilePath": "plasmic/bentuk_cintav_2/PlasmicHomepage.tsx",
+          "importSpec": {
+            "modulePath": "../pages/index.tsx"
+          },
+          "cssFilePath": "plasmic/bentuk_cintav_2/PlasmicHomepage.module.css",
+          "scheme": "blackbox",
+          "componentType": "page"
+        },
+        {
+          "id": "-10-aw9bNw",
+          "name": "Invitation",
+          "type": "managed",
+          "projectId": "62fk78rY9xoShC3bnaKgA9",
+          "renderModuleFilePath": "plasmic/bentuk_cintav_2/PlasmicInvitation.tsx",
+          "importSpec": {
+            "modulePath": "../pages/[slug].tsx"
+          },
+          "cssFilePath": "plasmic/bentuk_cintav_2/PlasmicInvitation.module.css",
+          "scheme": "blackbox",
+          "componentType": "page"
+        }
+      ],
+      "icons": [],
+      "images": [],
+      "indirect": false,
+      "globalContextsFilePath": "plasmic/bentuk_cintav_2/PlasmicGlobalContextsProvider.tsx",
+      "codeComponents": [
+        {
+          "id": "WXwVC2oLrrOI3",
+          "name": "PlasmicHead",
+          "displayName": "hostless-plasmic-head",
+          "componentImportPath": "@plasmicapp/react-web"
+        },
+        {
+          "id": "lP7-syqRi0Vod",
+          "name": "Fetcher",
+          "displayName": "plasmic-data-source-fetcher",
+          "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
+        }
+      ]
+    }
+  ],
+  "globalVariants": {
+    "variantGroups": [
+      {
+        "id": "7Yt-akblAUxFb",
+        "name": "Screen",
+        "projectId": "62fk78rY9xoShC3bnaKgA9",
+        "contextFilePath": "plasmic/bentuk_cintav_2/PlasmicGlobalVariant__Screen.tsx"
+      }
+    ]
+  },
+  "wrapPagesWithGlobalContexts": true,
+  "nextjsConfig": {
+    "pagesDir": "../pages"
+  },
+  "cliVersion": "0.1.292",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.292/dist/plasmic.schema.json"
+}
