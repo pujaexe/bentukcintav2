@@ -37,11 +37,11 @@ import {
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
 import { GraphCMSFetcher } from "@plasmicpkgs/plasmic-graphcms"; // plasmic-import: 8sYtOZawA08/codeComponent
-import { GraphCMSField } from "@plasmicpkgs/plasmic-graphcms"; // plasmic-import: _3Kx5FMtA8n/codeComponent
 import Template1 from "../../Template1"; // plasmic-import: tCLmdV1-a5/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
+import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_bentuk_cintav_2.module.css"; // plasmic-import: 62fk78rY9xoShC3bnaKgA9/projectcss
 import sty from "./PlasmicInvitation.module.css"; // plasmic-import: -10-aw9bNw/css
 
@@ -56,11 +56,8 @@ export const PlasmicInvitation__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicInvitation__OverridesType = {
   root?: p.Flex<"div">;
-  section?: p.Flex<"section">;
-  h1?: p.Flex<"h1">;
   graphCmsFetcher?: p.Flex<typeof GraphCMSFetcher>;
   freeBox?: p.Flex<"div">;
-  graphCmsField?: p.Flex<typeof GraphCMSField>;
   template1?: p.Flex<typeof Template1>;
 };
 
@@ -125,27 +122,10 @@ function PlasmicInvitation__RenderFunc(props: {
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
             projectcss.plasmic_tokens,
+            plasmic_antd_5_hostless_css.plasmic_tokens,
             sty.root
           )}
         >
-          <section
-            data-plasmic-name={"section"}
-            data-plasmic-override={overrides.section}
-            className={classNames(projectcss.all, sty.section)}
-          >
-            <h1
-              data-plasmic-name={"h1"}
-              data-plasmic-override={overrides.h1}
-              className={classNames(
-                projectcss.all,
-                projectcss.h1,
-                projectcss.__wab_text,
-                sty.h1
-              )}
-            >
-              {"Welcome to your first page."}
-            </h1>
-          </section>
           <GraphCMSFetcher
             data-plasmic-name={"graphCmsFetcher"}
             data-plasmic-override={overrides.graphCmsFetcher}
@@ -167,21 +147,15 @@ function PlasmicInvitation__RenderFunc(props: {
                   data-plasmic-override={overrides.freeBox}
                   className={classNames(projectcss.all, sty.freeBox)}
                 >
-                  <GraphCMSField
-                    data-plasmic-name={"graphCmsField"}
-                    data-plasmic-override={overrides.graphCmsField}
-                    className={classNames("__wab_instance", sty.graphCmsField)}
-                    path={["title"]}
+                  <Template1
+                    data-plasmic-name={"template1"}
+                    data-plasmic-override={overrides.template1}
+                    className={classNames("__wab_instance", sty.template1)}
                   />
                 </div>
               )}
             </ph.DataCtxReader>
           </GraphCMSFetcher>
-          <Template1
-            data-plasmic-name={"template1"}
-            data-plasmic-override={overrides.template1}
-            className={classNames("__wab_instance", sty.template1)}
-          />
         </div>
       </div>
     </React.Fragment>
@@ -189,20 +163,9 @@ function PlasmicInvitation__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "section",
-    "h1",
-    "graphCmsFetcher",
-    "freeBox",
-    "graphCmsField",
-    "template1"
-  ],
-  section: ["section", "h1"],
-  h1: ["h1"],
-  graphCmsFetcher: ["graphCmsFetcher", "freeBox", "graphCmsField"],
-  freeBox: ["freeBox", "graphCmsField"],
-  graphCmsField: ["graphCmsField"],
+  root: ["root", "graphCmsFetcher", "freeBox", "template1"],
+  graphCmsFetcher: ["graphCmsFetcher", "freeBox", "template1"],
+  freeBox: ["freeBox", "template1"],
   template1: ["template1"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -210,11 +173,8 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  section: "section";
-  h1: "h1";
   graphCmsFetcher: typeof GraphCMSFetcher;
   freeBox: "div";
-  graphCmsField: typeof GraphCMSField;
   template1: typeof Template1;
 };
 
@@ -278,11 +238,8 @@ export const PlasmicInvitation = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    section: makeNodeComponent("section"),
-    h1: makeNodeComponent("h1"),
     graphCmsFetcher: makeNodeComponent("graphCmsFetcher"),
     freeBox: makeNodeComponent("freeBox"),
-    graphCmsField: makeNodeComponent("graphCmsField"),
     template1: makeNodeComponent("template1"),
 
     // Metadata about props expected for PlasmicInvitation

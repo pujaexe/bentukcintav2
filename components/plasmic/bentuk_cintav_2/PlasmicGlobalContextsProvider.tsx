@@ -7,18 +7,26 @@
 import * as React from "react";
 import { hasVariant, ensureGlobalVariants } from "@plasmicapp/react-web";
 import { GraphCMSCredentialsProvider } from "@plasmicpkgs/plasmic-graphcms"; // plasmic-import: hNB_eBOLhAQ/codeComponent
+import { AntdConfigProvider } from "@plasmicpkgs/antd5/skinny/registerConfigProvider"; // plasmic-import: DmrLLHGTjGTE/codeComponent
 
 export interface GlobalContextsProviderProps {
   children?: React.ReactElement;
   graphCMSCredentialsProviderProps?: Partial<
     Omit<React.ComponentProps<typeof GraphCMSCredentialsProvider>, "children">
   >;
+  antdConfigProviderProps?: Partial<
+    Omit<React.ComponentProps<typeof AntdConfigProvider>, "children">
+  >;
 }
 
 export default function GlobalContextsProvider(
   props: GlobalContextsProviderProps
 ) {
-  const { children, graphCMSCredentialsProviderProps } = props;
+  const {
+    children,
+    graphCMSCredentialsProviderProps,
+    antdConfigProviderProps
+  } = props;
 
   return (
     <GraphCMSCredentialsProvider
@@ -36,7 +44,90 @@ export default function GlobalContextsProvider(
           : ("eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImdjbXMtbWFpbi1wcm9kdWN0aW9uIn0.eyJ2ZXJzaW9uIjozLCJpYXQiOjE2NjMyMzgyMTYsImF1ZCI6WyJodHRwczovL2FwaS1hcC1zb3V0aGVhc3QtMi5oeWdyYXBoLmNvbS92Mi9jbDgycmtmOWsyb3J0MDF0MzdpZmRhZDY1L21hc3RlciIsIm1hbmFnZW1lbnQtbmV4dC5ncmFwaGNtcy5jb20iXSwiaXNzIjoiaHR0cHM6Ly9tYW5hZ2VtZW50LmdyYXBoY21zLmNvbS8iLCJzdWIiOiJmZGQ2MWYwNS0wNTVhLTRmYzUtYjc4MC02Yjc3MmM1YjE1MTciLCJqdGkiOiJjbDgyeDM5Y2cwOHR3MDF0MzkyYWZndDFxIn0.xX5MTdp4KTeR8n9WpAao3aElZOqnR530tUIh45EffqYmQD8ElomEMwJq9n-RtvoDy25nueyDU7_nsySLjRV-xiCD4WYDVETcnvOqNu_l3QlfMxFvIvMVQj7Qm9z9T56D_humi-VMAIwKHx4jPfuhenD1np5l1nkw4dfU-GdIU2PRK5wETddBqykzaCoMp8yTtawDMG2YgIhgPN4iqiesRf73JYPy9cGUHJXezrGnh6t3hOElNhDpLh6vWXgKrjBKxpbf6wI4HBspPt0ElJ268zFsMEoh0UlkktXiPCgi7uEljxUA1TwomMSEpG-wnG1v5yj-as0DJ09TDFrllUpfWpdRKGRpnAE7lsgSAXWyp3AUVxsdCMnpP7A0UENk9EiSWVx8aTYPX-CFw_avlZCTmt6mrNZIOByzKk7XnOYcA3LUsCVfCrthndt3UIg8vlE2xCWyH3eLIi4DjGGCD2KW8-9fNFsqZBt6t5t-y1ZTXgdL4kuN_dYUT7Wlwe0GSPmPZx3e8C264Cga-Lu66zSJV8ikliW3najMlkzDcXyY2pSeBNLwkbDFVd1RCSe_J6M4sd0f0ftqUp37l-m8XZxQ06bFRULcMrikruG9cynalbiZWVrzXCNx36HOWra1MKR-ioaKli0iBTN2tE94IbRnHFyRnQYKgHiQkT3g2rvnMyQ" as const)
       }
     >
-      {children}
+      <AntdConfigProvider
+        {...antdConfigProviderProps}
+        borderRadius={
+          antdConfigProviderProps && "borderRadius" in antdConfigProviderProps
+            ? antdConfigProviderProps.borderRadius!
+            : (6 as const)
+        }
+        colorBgBase={
+          antdConfigProviderProps && "colorBgBase" in antdConfigProviderProps
+            ? antdConfigProviderProps.colorBgBase!
+            : ("#ffffff" as const)
+        }
+        colorError={
+          antdConfigProviderProps && "colorError" in antdConfigProviderProps
+            ? antdConfigProviderProps.colorError!
+            : ("#ff4d4f" as const)
+        }
+        colorInfo={
+          antdConfigProviderProps && "colorInfo" in antdConfigProviderProps
+            ? antdConfigProviderProps.colorInfo!
+            : ("#1677ff" as const)
+        }
+        colorPrimary={
+          antdConfigProviderProps && "colorPrimary" in antdConfigProviderProps
+            ? antdConfigProviderProps.colorPrimary!
+            : ("#1677ff" as const)
+        }
+        colorSuccess={
+          antdConfigProviderProps && "colorSuccess" in antdConfigProviderProps
+            ? antdConfigProviderProps.colorSuccess!
+            : ("#52c41a" as const)
+        }
+        colorWarning={
+          antdConfigProviderProps && "colorWarning" in antdConfigProviderProps
+            ? antdConfigProviderProps.colorWarning!
+            : ("#faad14" as const)
+        }
+        controlHeight={
+          antdConfigProviderProps && "controlHeight" in antdConfigProviderProps
+            ? antdConfigProviderProps.controlHeight!
+            : (32 as const)
+        }
+        defaultDark={
+          antdConfigProviderProps && "defaultDark" in antdConfigProviderProps
+            ? antdConfigProviderProps.defaultDark!
+            : false
+        }
+        lineWidth={
+          antdConfigProviderProps && "lineWidth" in antdConfigProviderProps
+            ? antdConfigProviderProps.lineWidth!
+            : (1 as const)
+        }
+        sizeStep={
+          antdConfigProviderProps && "sizeStep" in antdConfigProviderProps
+            ? antdConfigProviderProps.sizeStep!
+            : (4 as const)
+        }
+        sizeUnit={
+          antdConfigProviderProps && "sizeUnit" in antdConfigProviderProps
+            ? antdConfigProviderProps.sizeUnit!
+            : (4 as const)
+        }
+        themeStyles={
+          antdConfigProviderProps && "themeStyles" in antdConfigProviderProps
+            ? antdConfigProviderProps.themeStyles!
+            : true
+            ? {
+                fontFamily: "Inter",
+                fontSize: "16px",
+                fontWeight: "400",
+                lineHeight: "1.5",
+                color: "#535353",
+                letterSpacing: "normal"
+              }
+            : undefined
+        }
+        wireframe={
+          antdConfigProviderProps && "wireframe" in antdConfigProviderProps
+            ? antdConfigProviderProps.wireframe!
+            : false
+        }
+      >
+        {children}
+      </AntdConfigProvider>
     </GraphCMSCredentialsProvider>
   );
 }

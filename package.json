@@ -11,7 +11,10 @@
   "dependencies": {
     "@plasmicapp/cli": "^0.1.292",
     "@plasmicapp/react-web": "^0.2.227",
+    "@plasmicpkgs/antd5": "^0.0.81",
+    "@plasmicpkgs/plasmic-basic-components": "^0.0.159",
     "@plasmicpkgs/plasmic-graphcms": "^0.0.119",
+    "@plasmicpkgs/react-youtube": "^7.13.152",
     "@types/node": "20.2.6",
     "@types/react": "18.2.9",
     "@types/react-dom": "18.2.4",

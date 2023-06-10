@@ -41,6 +41,7 @@ import { GraphCMSField } from "@plasmicpkgs/plasmic-graphcms"; // plasmic-import
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
+import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_bentuk_cintav_2.module.css"; // plasmic-import: 62fk78rY9xoShC3bnaKgA9/projectcss
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: qFoMLkshDIMc/css
 
@@ -125,6 +126,7 @@ function PlasmicHomepage__RenderFunc(props: {
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
             projectcss.plasmic_tokens,
+            plasmic_antd_5_hostless_css.plasmic_tokens,
             sty.root
           )}
         >

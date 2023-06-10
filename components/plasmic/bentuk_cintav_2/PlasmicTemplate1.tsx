@@ -36,11 +36,21 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
+import YouTube from "@plasmicpkgs/react-youtube"; // plasmic-import: CHO21V9uYw/codeComponent
+import { Embed } from "@plasmicpkgs/plasmic-basic-components"; // plasmic-import: PKldDYkH42/codeComponent
+import { Iframe } from "@plasmicpkgs/plasmic-basic-components"; // plasmic-import: CMDBvOhaI4s/codeComponent
+import Button from "../../Button"; // plasmic-import: 02HmyteR4qq/component
+
+import { useScreenVariants as useScreenVariants_7YtAkblAUxFb } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 7Yt-akblAUxFb/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
+import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_bentuk_cintav_2.module.css"; // plasmic-import: 62fk78rY9xoShC3bnaKgA9/projectcss
 import sty from "./PlasmicTemplate1.module.css"; // plasmic-import: tCLmdV1-a5/css
+
+import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: 2oSyQCFheDJ/icon
+import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: XBieVn7nEqJ/icon
 
 export type PlasmicTemplate1__VariantMembers = {};
 export type PlasmicTemplate1__VariantsArgs = {};
@@ -53,8 +63,26 @@ export const PlasmicTemplate1__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicTemplate1__OverridesType = {
   root?: p.Flex<"div">;
-  section?: p.Flex<"section">;
-  h1?: p.Flex<"h1">;
+  hero?: p.Flex<"div">;
+  desc?: p.Flex<"div">;
+  details?: p.Flex<"div">;
+  contentWrapper?: p.Flex<"div">;
+  title?: p.Flex<"div">;
+  pengantinDetails?: p.Flex<"div">;
+  man?: p.Flex<"div">;
+  girl?: p.Flex<"div">;
+  dateTime?: p.Flex<"div">;
+  gallery?: p.Flex<"div">;
+  contentWrapper2?: p.Flex<"div">;
+  title2?: p.Flex<"div">;
+  youTube?: p.Flex<typeof YouTube>;
+  embedHtml?: p.Flex<typeof Embed>;
+  map?: p.Flex<"div">;
+  contentWrapper3?: p.Flex<"div">;
+  title3?: p.Flex<"div">;
+  iframe?: p.Flex<typeof Iframe>;
+  button?: p.Flex<typeof Button>;
+  footer?: p.Flex<"div">;
 };
 
 export interface DefaultTemplate1Props {
@@ -98,6 +126,10 @@ function PlasmicTemplate1__RenderFunc(props: {
 
   const [$queries, setDollarQueries] = React.useState({});
 
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_7YtAkblAUxFb()
+  });
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -110,57 +142,1124 @@ function PlasmicTemplate1__RenderFunc(props: {
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
         projectcss.plasmic_tokens,
+        plasmic_antd_5_hostless_css.plasmic_tokens,
         sty.root
       )}
     >
-      <section
-        data-plasmic-name={"section"}
-        data-plasmic-override={overrides.section}
-        className={classNames(projectcss.all, sty.section)}
+      <div
+        data-plasmic-name={"hero"}
+        data-plasmic-override={overrides.hero}
+        className={classNames(projectcss.all, sty.hero)}
       >
-        <h1
-          data-plasmic-name={"h1"}
-          data-plasmic-override={overrides.h1}
-          className={classNames(
-            projectcss.all,
-            projectcss.h1,
-            projectcss.__wab_text,
-            sty.h1
-          )}
+        <p.PlasmicImg
+          alt={""}
+          className={classNames(sty.img__npNu)}
+          displayHeight={
+            hasVariant(globalVariants, "screen", "mobileOnly")
+              ? ("100%" as const)
+              : ("100%" as const)
+          }
+          displayMaxHeight={"none" as const}
+          displayMaxWidth={"100%" as const}
+          displayMinHeight={"0" as const}
+          displayMinWidth={"0" as const}
+          displayWidth={
+            hasVariant(globalVariants, "screen", "mobileOnly")
+              ? ("100%" as const)
+              : ("100%" as const)
+          }
+          loading={"lazy" as const}
+          src={(() => {
+            try {
+              return $ctx.graphCmsItem.coverPhoto;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "https://site-assets.plasmic.app/fc2d188e3a462afa31d6e98b82d753ee.png";
+              }
+              throw e;
+            }
+          })()}
+        />
+
+        <p.Stack
+          as={"div"}
+          data-plasmic-name={"desc"}
+          data-plasmic-override={overrides.desc}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.desc)}
         >
-          <React.Fragment>
-            {(() => {
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text___2QRog
+            )}
+          >
+            {"UNDANGAN PERNIKAHAN"}
+          </div>
+          <h2
+            className={classNames(
+              projectcss.all,
+              projectcss.h2,
+              projectcss.__wab_text,
+              sty.h2__hvAn2
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $ctx.graphCmsItem.title;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "Jonh & Merry";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </h2>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__gTfAi
+            )}
+          >
+            {
+              "WE INVITE YOU TO CELEBRATE\nWITH US THE MOST SPECIAL DAY IN OUR LIFES"
+            }
+          </div>
+          {true ? (
+            <p.Stack
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__rimOu)}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___7GO4I
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $ctx.graphCmsItem.evenDateTime.slice(5, 7) == 1
+                        ? "Jan"
+                        : $ctx.graphCmsItem.evenDateTime.slice(5, 7) == 2
+                        ? "Feb"
+                        : $ctx.graphCmsItem.evenDateTime.slice(5, 7) == 3
+                        ? "Mar"
+                        : $ctx.graphCmsItem.evenDateTime.slice(5, 7) == 4
+                        ? "Apr"
+                        : $ctx.graphCmsItem.evenDateTime.slice(5, 7) == 5
+                        ? "May"
+                        : $ctx.graphCmsItem.evenDateTime.slice(5, 7) == 6
+                        ? "Jun"
+                        : $ctx.graphCmsItem.evenDateTime.slice(5, 7) == 7
+                        ? "Jul"
+                        : $ctx.graphCmsItem.evenDateTime.slice(5, 7) == 8
+                        ? "Aug"
+                        : $ctx.graphCmsItem.evenDateTime.slice(5, 7) == 9
+                        ? "Sep"
+                        : $ctx.graphCmsItem.evenDateTime.slice(5, 7) == 10
+                        ? "Oct"
+                        : $ctx.graphCmsItem.evenDateTime.slice(5, 7) == 11
+                        ? "Nov"
+                        : "Dec";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "Jan";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
+              <h5
+                className={classNames(
+                  projectcss.all,
+                  projectcss.h5,
+                  projectcss.__wab_text,
+                  sty.h5__x0Wdx
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $ctx.graphCmsItem.evenDateTime.slice(8, 10);
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "30";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </h5>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___9DlI
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $ctx.graphCmsItem.evenDateTime.slice(0, 4);
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "2023";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
+            </p.Stack>
+          ) : null}
+        </p.Stack>
+      </div>
+      <div
+        data-plasmic-name={"details"}
+        data-plasmic-override={overrides.details}
+        className={classNames(projectcss.all, sty.details)}
+      >
+        <p.Stack
+          as={"div"}
+          data-plasmic-name={"contentWrapper"}
+          data-plasmic-override={overrides.contentWrapper}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.contentWrapper)}
+        >
+          {true ? (
+            <p.Stack
+              as={"div"}
+              data-plasmic-name={"title"}
+              data-plasmic-override={overrides.title}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.title)}
+            >
+              <h2
+                className={classNames(
+                  projectcss.all,
+                  projectcss.h2,
+                  projectcss.__wab_text,
+                  sty.h2___7HOv3
+                )}
+              >
+                {"Om Swastiastu"}
+              </h2>
+              <h5
+                className={classNames(
+                  projectcss.all,
+                  projectcss.h5,
+                  projectcss.__wab_text,
+                  sty.h5__myBc
+                )}
+              >
+                {"Mohon Doa Restu"}
+              </h5>
+            </p.Stack>
+          ) : null}
+          <p.Stack
+            as={"div"}
+            data-plasmic-name={"pengantinDetails"}
+            data-plasmic-override={overrides.pengantinDetails}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.pengantinDetails)}
+          >
+            <div className={classNames(projectcss.all, sty.column__ts6Hw)}>
+              {true ? (
+                <p.Stack
+                  as={"div"}
+                  data-plasmic-name={"man"}
+                  data-plasmic-override={overrides.man}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.man)}
+                >
+                  {(() => {
+                    try {
+                      return $ctx.graphCmsItem.photoPria != null;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })() ? (
+                    <p.PlasmicImg
+                      alt={""}
+                      className={classNames(sty.img__sWvM)}
+                      displayHeight={"200px" as const}
+                      displayMaxHeight={"none" as const}
+                      displayMaxWidth={"100%" as const}
+                      displayMinHeight={"0" as const}
+                      displayMinWidth={"0" as const}
+                      displayWidth={"200px" as const}
+                      loading={"lazy" as const}
+                      src={(() => {
+                        try {
+                          return $ctx.graphCmsItem.photoPria;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                    />
+                  ) : null}
+                  <h3
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h3,
+                      projectcss.__wab_text,
+                      sty.h3__pma8M
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $ctx.graphCmsItem.pengantinPria;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "Jonh Doe";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </h3>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__zwau0
+                    )}
+                  >
+                    {"Putra dari pasangan"}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__qcXWn
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return (
+                            $ctx.graphCmsItem.bapakPria +
+                            " & " +
+                            $ctx.graphCmsItem.ibuPria
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "Rocky Doe & Jane Doe";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__vIDjS
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $ctx.graphCmsItem.alamatPria;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "This is Bride Hometown Addess";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                </p.Stack>
+              ) : null}
+            </div>
+            <div className={classNames(projectcss.all, sty.column__jwVtf)}>
+              {true ? (
+                <p.Stack
+                  as={"div"}
+                  data-plasmic-name={"girl"}
+                  data-plasmic-override={overrides.girl}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.girl)}
+                >
+                  {(() => {
+                    try {
+                      return $ctx.graphCmsItem.photoWanita != null;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })() ? (
+                    <p.PlasmicImg
+                      alt={""}
+                      className={classNames(sty.img__gmLag)}
+                      displayHeight={"200px" as const}
+                      displayMaxHeight={"none" as const}
+                      displayMaxWidth={"100%" as const}
+                      displayMinHeight={"0" as const}
+                      displayMinWidth={"0" as const}
+                      displayWidth={"200px" as const}
+                      loading={"lazy" as const}
+                      src={(() => {
+                        try {
+                          return $ctx.graphCmsItem.photoWanita;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                    />
+                  ) : null}
+                  <h3
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h3,
+                      projectcss.__wab_text,
+                      sty.h3__ntRkW
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $ctx.graphCmsItem.pengantinWanita;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "Merry Doe";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </h3>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___6Ge1A
+                    )}
+                  >
+                    {"Putra dari pasangan"}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__eSa1I
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return (
+                            $ctx.graphCmsItem.bapakWanita +
+                            " & " +
+                            $ctx.graphCmsItem.ibuWanita
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "Rocky Doe & Jane Doe";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__lgEg
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $ctx.graphCmsItem.alamatWanita;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "This is Bride Hometown Addess";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                </p.Stack>
+              ) : null}
+            </div>
+          </p.Stack>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__rLnUc
+            )}
+          >
+            {
+              "Atas Asung Kertha Wara Nugraha Ida Sang Hyang Widhi Wasa/Tuhan Yang Maha Esa kami bermaksud mengundang Bapak/Ibu/Saudara/i pada Upacara Manusa Yadnya Pawiwahan (Pernikahan) Putra dan Putri kami"
+            }
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__reQJ
+            )}
+          >
+            {
+              "Merupakan suatu kehormatan dan kebahagiaan bagi kami, apabila Bapak / Ibu / Saudara / i berkenan hadir untuk memberikan doa restu, pada:"
+            }
+          </div>
+          <p.Stack
+            as={"div"}
+            data-plasmic-name={"dateTime"}
+            data-plasmic-override={overrides.dateTime}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.dateTime)}
+          >
+            <div className={classNames(projectcss.all, sty.freeBox__unMst)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__e1Hx
+                )}
+              >
+                {"Hari / Tanggal"}
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__knoTq
+                )}
+              >
+                {"Pukul"}
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__qaE7V
+                )}
+              >
+                {"Alamat"}
+              </div>
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__kCCpB)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__akVo
+                )}
+              >
+                {":"}
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___6TiB
+                )}
+              >
+                {":"}
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__vh1NB
+                )}
+              >
+                {":"}
+              </div>
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__eeqo)}>
+              {true ? (
+                <p.Stack
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__goIso)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__v43M
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $ctx.graphCmsItem.evenDateTime.slice(8, 10);
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "30";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___1Uwvc
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $ctx.graphCmsItem.evenDateTime.slice(5, 7) == 1
+                            ? "Jan"
+                            : $ctx.graphCmsItem.evenDateTime.slice(5, 7) == 2
+                            ? "Feb"
+                            : $ctx.graphCmsItem.evenDateTime.slice(5, 7) == 3
+                            ? "Mar"
+                            : $ctx.graphCmsItem.evenDateTime.slice(5, 7) == 4
+                            ? "Apr"
+                            : $ctx.graphCmsItem.evenDateTime.slice(5, 7) == 5
+                            ? "May"
+                            : $ctx.graphCmsItem.evenDateTime.slice(5, 7) == 6
+                            ? "Jun"
+                            : $ctx.graphCmsItem.evenDateTime.slice(5, 7) == 7
+                            ? "Jul"
+                            : $ctx.graphCmsItem.evenDateTime.slice(5, 7) == 8
+                            ? "Aug"
+                            : $ctx.graphCmsItem.evenDateTime.slice(5, 7) == 9
+                            ? "Sep"
+                            : $ctx.graphCmsItem.evenDateTime.slice(5, 7) == 10
+                            ? "Oct"
+                            : $ctx.graphCmsItem.evenDateTime.slice(5, 7) == 11
+                            ? "Nov"
+                            : "Dec";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "Jan";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__o5G5X
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $ctx.graphCmsItem.evenDateTime.slice(0, 4);
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "2023";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                </p.Stack>
+              ) : null}
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__jrrhv
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return (
+                        $ctx.graphCmsItem.evenDateTime.slice(11, 16) +
+                        " s/d Selesai"
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "05:00 s/d Selesai";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__cspIp
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $ctx.graphCmsItem.eventLocation;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "Event Address Location is Here";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
+            </div>
+          </p.Stack>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__fRqxL
+            )}
+          >
+            {
+              "Atas Kehadiran serta doa dan restu Bapak / Ibu / Saudara / i, kami ucapkan terima kasih"
+            }
+          </div>
+          <h2
+            className={classNames(
+              projectcss.all,
+              projectcss.h2,
+              projectcss.__wab_text,
+              sty.h2__mYmb1
+            )}
+          >
+            {"Om Shanti Shanti Shanti Om"}
+          </h2>
+        </p.Stack>
+      </div>
+      <div
+        data-plasmic-name={"gallery"}
+        data-plasmic-override={overrides.gallery}
+        className={classNames(projectcss.all, sty.gallery)}
+      >
+        <p.Stack
+          as={"div"}
+          data-plasmic-name={"contentWrapper2"}
+          data-plasmic-override={overrides.contentWrapper2}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.contentWrapper2)}
+        >
+          {true ? (
+            <p.Stack
+              as={"div"}
+              data-plasmic-name={"title2"}
+              data-plasmic-override={overrides.title2}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.title2)}
+            >
+              <h2
+                className={classNames(
+                  projectcss.all,
+                  projectcss.h2,
+                  projectcss.__wab_text,
+                  sty.h2__r66H0
+                )}
+              >
+                {"Gallery"}
+              </h2>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__yArAe
+                )}
+              >
+                {
+                  '"Ya Tuhanku yang Maha Pengasih, anugerahkanlah kepada pasangan pengantin ini senantiasa berbahagia keduanya tiada terpisahkan, panjang umur, semoga pengantin ini dianugerahkan putra dan cucu yang memberikan penghiburan, tinggal dirumah yang penuh kebahagiaan.”'
+                }
+              </div>
+            </p.Stack>
+          ) : null}
+          {(() => {
+            try {
+              return $ctx.graphCmsItem.youtubeUrl != null;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <YouTube
+              data-plasmic-name={"youTube"}
+              data-plasmic-override={overrides.youTube}
+              className={classNames("__wab_instance", sty.youTube)}
+              videoId={(() => {
+                try {
+                  return $ctx.graphCmsItem.youtubeUrl;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "R6MeLqRQzYw";
+                  }
+                  throw e;
+                }
+              })()}
+            />
+          ) : null}
+          <div className={classNames(projectcss.all, sty.freeBox__oFuCq)}>
+            {(
+              (() => {
+                try {
+                  return $ctx.graphCmsItem.galleries;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [];
+                  }
+                  throw e;
+                }
+              })() ?? []
+            ).map((currentItem, currentIndex) => (
+              <div
+                className={classNames(projectcss.all, sty.freeBox___2E5Gb)}
+                key={currentIndex}
+              >
+                <p.PlasmicImg
+                  alt={""}
+                  className={classNames(sty.img__rYhH)}
+                  displayHeight={"300px" as const}
+                  displayMaxHeight={"none" as const}
+                  displayMaxWidth={"none" as const}
+                  displayMinHeight={"0" as const}
+                  displayMinWidth={"0" as const}
+                  displayWidth={"300px" as const}
+                  loading={"lazy" as const}
+                  src={(() => {
+                    try {
+                      return currentItem.photoGallery;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "https://via.placeholder.com/150";
+                      }
+                      throw e;
+                    }
+                  })()}
+                />
+              </div>
+            ))}
+          </div>
+          {(() => {
+            try {
+              return $ctx.graphCmsItem.audioUrl != null;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <Embed
+              data-plasmic-name={"embedHtml"}
+              data-plasmic-override={overrides.embedHtml}
+              className={classNames("__wab_instance", sty.embedHtml)}
+              code={(() => {
+                try {
+                  return (
+                    '<audio controls> <source src="' +
+                    $ctx.graphCmsItem.audioUrl +
+                    "\" type='audio/mpeg'></audio>"
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "<div>Audio Player</div>";
+                  }
+                  throw e;
+                }
+              })()}
+            />
+          ) : null}
+        </p.Stack>
+      </div>
+      <div
+        data-plasmic-name={"map"}
+        data-plasmic-override={overrides.map}
+        className={classNames(projectcss.all, sty.map)}
+      >
+        <p.Stack
+          as={"div"}
+          data-plasmic-name={"contentWrapper3"}
+          data-plasmic-override={overrides.contentWrapper3}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.contentWrapper3)}
+        >
+          {true ? (
+            <p.Stack
+              as={"div"}
+              data-plasmic-name={"title3"}
+              data-plasmic-override={overrides.title3}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.title3)}
+            >
+              <h2
+                className={classNames(
+                  projectcss.all,
+                  projectcss.h2,
+                  projectcss.__wab_text,
+                  sty.h2__zlNQv
+                )}
+              >
+                {"Location"}
+              </h2>
+            </p.Stack>
+          ) : null}
+          <Iframe
+            data-plasmic-name={"iframe"}
+            data-plasmic-override={overrides.iframe}
+            className={classNames("__wab_instance", sty.iframe)}
+            preview={true}
+            src={(() => {
               try {
-                return $ctx.graphCmsItem.title;
+                return $ctx.graphCmsItem.gmapsEmbed;
               } catch (e) {
                 if (
                   e instanceof TypeError ||
                   e?.plasmicType === "PlasmicUndefinedDataError"
                 ) {
-                  return "Nama Pengantin";
+                  return "https://www.example.com";
                 }
                 throw e;
               }
             })()}
-          </React.Fragment>
-        </h1>
-      </section>
+          />
+
+          <div className={classNames(projectcss.all, sty.freeBox__iloPk)}>
+            <Button
+              data-plasmic-name={"button"}
+              data-plasmic-override={overrides.button}
+              className={classNames("__wab_instance", sty.button)}
+              color={"yellow" as const}
+              link={(() => {
+                try {
+                  return (
+                    "https://www.google.com/maps/place/" +
+                    $ctx.graphCmsItem.eventMap.latitude +
+                    "," +
+                    $ctx.graphCmsItem.eventMap.longitude
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+            >
+              {"Petunjuk Arah"}
+            </Button>
+          </div>
+        </p.Stack>
+      </div>
+      <div
+        data-plasmic-name={"footer"}
+        data-plasmic-override={overrides.footer}
+        className={classNames(projectcss.all, sty.footer)}
+      >
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__iufQg
+          )}
+        >
+          {"Build with 💖 by Bentukcinta.com"}
+        </div>
+      </div>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "section", "h1"],
-  section: ["section", "h1"],
-  h1: ["h1"]
+  root: [
+    "root",
+    "hero",
+    "desc",
+    "details",
+    "contentWrapper",
+    "title",
+    "pengantinDetails",
+    "man",
+    "girl",
+    "dateTime",
+    "gallery",
+    "contentWrapper2",
+    "title2",
+    "youTube",
+    "embedHtml",
+    "map",
+    "contentWrapper3",
+    "title3",
+    "iframe",
+    "button",
+    "footer"
+  ],
+  hero: ["hero", "desc"],
+  desc: ["desc"],
+  details: [
+    "details",
+    "contentWrapper",
+    "title",
+    "pengantinDetails",
+    "man",
+    "girl",
+    "dateTime"
+  ],
+  contentWrapper: [
+    "contentWrapper",
+    "title",
+    "pengantinDetails",
+    "man",
+    "girl",
+    "dateTime"
+  ],
+  title: ["title"],
+  pengantinDetails: ["pengantinDetails", "man", "girl"],
+  man: ["man"],
+  girl: ["girl"],
+  dateTime: ["dateTime"],
+  gallery: ["gallery", "contentWrapper2", "title2", "youTube", "embedHtml"],
+  contentWrapper2: ["contentWrapper2", "title2", "youTube", "embedHtml"],
+  title2: ["title2"],
+  youTube: ["youTube"],
+  embedHtml: ["embedHtml"],
+  map: ["map", "contentWrapper3", "title3", "iframe", "button"],
+  contentWrapper3: ["contentWrapper3", "title3", "iframe", "button"],
+  title3: ["title3"],
+  iframe: ["iframe"],
+  button: ["button"],
+  footer: ["footer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  section: "section";
-  h1: "h1";
+  hero: "div";
+  desc: "div";
+  details: "div";
+  contentWrapper: "div";
+  title: "div";
+  pengantinDetails: "div";
+  man: "div";
+  girl: "div";
+  dateTime: "div";
+  gallery: "div";
+  contentWrapper2: "div";
+  title2: "div";
+  youTube: typeof YouTube;
+  embedHtml: typeof Embed;
+  map: "div";
+  contentWrapper3: "div";
+  title3: "div";
+  iframe: typeof Iframe;
+  button: typeof Button;
+  footer: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -223,8 +1322,26 @@ export const PlasmicTemplate1 = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    section: makeNodeComponent("section"),
-    h1: makeNodeComponent("h1"),
+    hero: makeNodeComponent("hero"),
+    desc: makeNodeComponent("desc"),
+    details: makeNodeComponent("details"),
+    contentWrapper: makeNodeComponent("contentWrapper"),
+    title: makeNodeComponent("title"),
+    pengantinDetails: makeNodeComponent("pengantinDetails"),
+    man: makeNodeComponent("man"),
+    girl: makeNodeComponent("girl"),
+    dateTime: makeNodeComponent("dateTime"),
+    gallery: makeNodeComponent("gallery"),
+    contentWrapper2: makeNodeComponent("contentWrapper2"),
+    title2: makeNodeComponent("title2"),
+    youTube: makeNodeComponent("youTube"),
+    embedHtml: makeNodeComponent("embedHtml"),
+    map: makeNodeComponent("map"),
+    contentWrapper3: makeNodeComponent("contentWrapper3"),
+    title3: makeNodeComponent("title3"),
+    iframe: makeNodeComponent("iframe"),
+    button: makeNodeComponent("button"),
+    footer: makeNodeComponent("footer"),
 
     // Metadata about props expected for PlasmicTemplate1
     internalVariantProps: PlasmicTemplate1__VariantProps,
