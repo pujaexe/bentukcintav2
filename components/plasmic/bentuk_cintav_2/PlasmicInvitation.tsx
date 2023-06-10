@@ -106,6 +106,12 @@ function PlasmicInvitation__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "template1.clickedImgUrl",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "" as const
       }
     ],
     [$props, $ctx]
@@ -162,6 +168,14 @@ function PlasmicInvitation__RenderFunc(props: {
                       data-plasmic-name={"template1"}
                       data-plasmic-override={overrides.template1}
                       className={classNames("__wab_instance", sty.template1)}
+                      clickedImgUrl={p.generateStateValueProp($state, [
+                        "template1",
+                        "clickedImgUrl"
+                      ])}
+                      onClickedImgUrlChange={p.generateStateOnChangeProp(
+                        $state,
+                        ["template1", "clickedImgUrl"]
+                      )}
                       onPreviewPopupChange={p.generateStateOnChangeProp(
                         $state,
                         ["template1", "previewPopup"]
