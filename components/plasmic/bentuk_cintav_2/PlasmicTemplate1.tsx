@@ -1266,7 +1266,7 @@ function PlasmicTemplate1__RenderFunc(props: {
               code={(() => {
                 try {
                   return (
-                    '<audio controls> <source src="' +
+                    '<audio controls autoplay> <source src="' +
                     $ctx.graphCmsItem.audioUrl +
                     "\" type='audio/mpeg'></audio>"
                   );
