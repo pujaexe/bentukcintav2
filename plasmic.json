@@ -7,7 +7,7 @@
   },
   "style": {
     "scheme": "css-modules",
-    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.css"
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.module.css"
   },
   "images": {
     "scheme": "public-files",
@@ -51,7 +51,8 @@
           "displayName": "GraphCMSCredentialsProvider",
           "componentImportPath": "@plasmicpkgs/plasmic-graphcms"
         }
-      ]
+      ],
+      "jsBundleThemes": []
     },
     {
       "projectId": "62fk78rY9xoShC3bnaKgA9",

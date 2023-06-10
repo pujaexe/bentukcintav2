@@ -169,6 +169,7 @@ function PlasmicInvitation__RenderFunc(props: {
                     data-plasmic-name={"graphCmsField"}
                     data-plasmic-override={overrides.graphCmsField}
                     className={classNames("__wab_instance", sty.graphCmsField)}
+                    path={["title"]}
                   />
                 </div>
               )}
