@@ -40,6 +40,7 @@ import YouTube from "@plasmicpkgs/react-youtube"; // plasmic-import: CHO21V9uYw/
 import { Embed } from "@plasmicpkgs/plasmic-basic-components"; // plasmic-import: PKldDYkH42/codeComponent
 import { Iframe } from "@plasmicpkgs/plasmic-basic-components"; // plasmic-import: CMDBvOhaI4s/codeComponent
 import Button from "../../Button"; // plasmic-import: 02HmyteR4qq/component
+import WhatsappButton from "../../WhatsappButton"; // plasmic-import: -w4zVRfnGC/component
 
 import { useScreenVariants as useScreenVariants_7YtAkblAUxFb } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 7Yt-akblAUxFb/globalVariant
 
@@ -51,6 +52,7 @@ import sty from "./PlasmicTemplate1.module.css"; // plasmic-import: tCLmdV1-a5/c
 
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: 2oSyQCFheDJ/icon
 import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: XBieVn7nEqJ/icon
+import WhatsappSvgrepoComsvgIcon from "./icons/PlasmicIcon__WhatsappSvgrepoComsvg"; // plasmic-import: 8wYuQ9ltP1/icon
 
 export type PlasmicTemplate1__VariantMembers = {};
 export type PlasmicTemplate1__VariantsArgs = {};
@@ -83,6 +85,9 @@ export type PlasmicTemplate1__OverridesType = {
   iframe?: p.Flex<typeof Iframe>;
   button?: p.Flex<typeof Button>;
   footer?: p.Flex<"div">;
+  whatsappButton?: p.Flex<typeof WhatsappButton>;
+  link?: p.Flex<"a"> & Partial<LinkProps>;
+  svg?: p.Flex<"svg">;
 };
 
 export interface DefaultTemplate1Props {
@@ -1171,6 +1176,44 @@ function PlasmicTemplate1__RenderFunc(props: {
           {"Build with 💖 by Bentukcinta.com"}
         </div>
       </div>
+      <WhatsappButton
+        data-plasmic-name={"whatsappButton"}
+        data-plasmic-override={overrides.whatsappButton}
+        className={classNames("__wab_instance", sty.whatsappButton)}
+        whatsapp2={
+          <p.PlasmicLink
+            data-plasmic-name={"link"}
+            data-plasmic-override={overrides.link}
+            className={classNames(projectcss.all, projectcss.a, sty.link)}
+            component={Link}
+            href={(() => {
+              try {
+                return (
+                  "https://api.whatsapp.com/send?phone=" +
+                  $ctx.graphCmsItem.phone1 +
+                  "%20&text=Hi,%20ini%20pesan%20dari%20undangan%20online%20mu."
+                );
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            platform={"nextjs"}
+          >
+            <WhatsappSvgrepoComsvgIcon
+              data-plasmic-name={"svg"}
+              data-plasmic-override={overrides.svg}
+              className={classNames(projectcss.all, sty.svg)}
+              role={"img"}
+            />
+          </p.PlasmicLink>
+        }
+      />
     </div>
   ) as React.ReactElement | null;
 }
@@ -1197,7 +1240,10 @@ const PlasmicDescendants = {
     "title3",
     "iframe",
     "button",
-    "footer"
+    "footer",
+    "whatsappButton",
+    "link",
+    "svg"
   ],
   hero: ["hero", "desc"],
   desc: ["desc"],
@@ -1233,7 +1279,10 @@ const PlasmicDescendants = {
   title3: ["title3"],
   iframe: ["iframe"],
   button: ["button"],
-  footer: ["footer"]
+  footer: ["footer"],
+  whatsappButton: ["whatsappButton", "link", "svg"],
+  link: ["link", "svg"],
+  svg: ["svg"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1260,6 +1309,9 @@ type NodeDefaultElementType = {
   iframe: typeof Iframe;
   button: typeof Button;
   footer: "div";
+  whatsappButton: typeof WhatsappButton;
+  link: "a";
+  svg: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1342,6 +1394,9 @@ export const PlasmicTemplate1 = Object.assign(
     iframe: makeNodeComponent("iframe"),
     button: makeNodeComponent("button"),
     footer: makeNodeComponent("footer"),
+    whatsappButton: makeNodeComponent("whatsappButton"),
+    link: makeNodeComponent("link"),
+    svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicTemplate1
     internalVariantProps: PlasmicTemplate1__VariantProps,

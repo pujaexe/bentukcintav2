@@ -1041,3 +1041,24 @@
   text-align: center;
   white-space: pre-wrap;
 }
+.whatsappButton:global(.__wab_instance) {
+  position: fixed;
+  top: auto;
+  left: auto;
+  bottom: 40px;
+  right: 40px;
+  z-index: 1;
+  flex-shrink: 0;
+}
+.link {
+  position: relative;
+  display: flex;
+}
+.svg {
+  object-fit: cover;
+  max-width: 100%;
+  width: 32px;
+  height: 32px;
+  color: #ffffff;
+  flex-shrink: 0;
+}

@@ -113,6 +113,19 @@
           "scheme": "blackbox",
           "componentType": "component",
           "plumeType": "button"
+        },
+        {
+          "id": "-w4zVRfnGC",
+          "name": "WhatsappButton",
+          "type": "managed",
+          "projectId": "62fk78rY9xoShC3bnaKgA9",
+          "renderModuleFilePath": "plasmic/bentuk_cintav_2/PlasmicWhatsappButton.tsx",
+          "importSpec": {
+            "modulePath": "WhatsappButton.tsx"
+          },
+          "cssFilePath": "plasmic/bentuk_cintav_2/PlasmicWhatsappButton.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -125,6 +138,11 @@
           "id": "XBieVn7nEqJ",
           "name": "IconIcon",
           "moduleFilePath": "plasmic/bentuk_cintav_2/icons/PlasmicIcon__Icon.tsx"
+        },
+        {
+          "id": "8wYuQ9ltP1",
+          "name": "WhatsappSvgrepoComsvgIcon",
+          "moduleFilePath": "plasmic/bentuk_cintav_2/icons/PlasmicIcon__WhatsappSvgrepoComsvg.tsx"
         }
       ],
       "images": [
@@ -208,7 +226,8 @@
           "displayName": "hostless-data-provider",
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         }
-      ]
+      ],
+      "jsBundleThemes": []
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
@@ -420,7 +439,8 @@
           "displayName": "plasmic-antd5-date-picker",
           "componentImportPath": "@plasmicpkgs/antd5/skinny/registerDatePicker"
         }
-      ]
+      ],
+      "jsBundleThemes": []
     },
     {
       "projectId": "enk3K4vZ6pmH6kVCoZJXGn",
@@ -440,7 +460,8 @@
           "displayName": "hostless-youtube",
           "componentImportPath": "@plasmicpkgs/react-youtube"
         }
-      ]
+      ],
+      "jsBundleThemes": []
     }
   ],
   "globalVariants": {

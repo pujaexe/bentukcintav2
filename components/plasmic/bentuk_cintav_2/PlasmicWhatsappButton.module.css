@@ -1,0 +1,25 @@
+.whatsapp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  max-width: 100%;
+  background: #25d366;
+  position: relative;
+  border-radius: 50px;
+  padding: 8px;
+}
+.link__k89Ds {
+  position: relative;
+  display: flex;
+}
+.svg__jLqHh {
+  object-fit: cover;
+  max-width: 100%;
+  width: 32px;
+  height: 32px;
+  color: #ffffff;
+  flex-shrink: 0;
+}
