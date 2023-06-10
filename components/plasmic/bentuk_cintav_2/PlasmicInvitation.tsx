@@ -38,6 +38,7 @@ import {
 } from "@plasmicapp/react-web";
 import { GraphCMSFetcher } from "@plasmicpkgs/plasmic-graphcms"; // plasmic-import: 8sYtOZawA08/codeComponent
 import { GraphCMSField } from "@plasmicpkgs/plasmic-graphcms"; // plasmic-import: _3Kx5FMtA8n/codeComponent
+import Template1 from "../../Template1"; // plasmic-import: tCLmdV1-a5/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -60,6 +61,7 @@ export type PlasmicInvitation__OverridesType = {
   graphCmsFetcher?: p.Flex<typeof GraphCMSFetcher>;
   freeBox?: p.Flex<"div">;
   graphCmsField?: p.Flex<typeof GraphCMSField>;
+  template1?: p.Flex<typeof Template1>;
 };
 
 export interface DefaultInvitationProps {}
@@ -175,6 +177,11 @@ function PlasmicInvitation__RenderFunc(props: {
               )}
             </ph.DataCtxReader>
           </GraphCMSFetcher>
+          <Template1
+            data-plasmic-name={"template1"}
+            data-plasmic-override={overrides.template1}
+            className={classNames("__wab_instance", sty.template1)}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -188,13 +195,15 @@ const PlasmicDescendants = {
     "h1",
     "graphCmsFetcher",
     "freeBox",
-    "graphCmsField"
+    "graphCmsField",
+    "template1"
   ],
   section: ["section", "h1"],
   h1: ["h1"],
   graphCmsFetcher: ["graphCmsFetcher", "freeBox", "graphCmsField"],
   freeBox: ["freeBox", "graphCmsField"],
-  graphCmsField: ["graphCmsField"]
+  graphCmsField: ["graphCmsField"],
+  template1: ["template1"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -206,6 +215,7 @@ type NodeDefaultElementType = {
   graphCmsFetcher: typeof GraphCMSFetcher;
   freeBox: "div";
   graphCmsField: typeof GraphCMSField;
+  template1: typeof Template1;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -273,6 +283,7 @@ export const PlasmicInvitation = Object.assign(
     graphCmsFetcher: makeNodeComponent("graphCmsFetcher"),
     freeBox: makeNodeComponent("freeBox"),
     graphCmsField: makeNodeComponent("graphCmsField"),
+    template1: makeNodeComponent("template1"),
 
     // Metadata about props expected for PlasmicInvitation
     internalVariantProps: PlasmicInvitation__VariantProps,

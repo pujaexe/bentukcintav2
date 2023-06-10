@@ -86,6 +86,19 @@
           "cssFilePath": "plasmic/bentuk_cintav_2/PlasmicInvitation.module.css",
           "scheme": "blackbox",
           "componentType": "page"
+        },
+        {
+          "id": "tCLmdV1-a5",
+          "name": "Template1",
+          "type": "managed",
+          "projectId": "62fk78rY9xoShC3bnaKgA9",
+          "renderModuleFilePath": "plasmic/bentuk_cintav_2/PlasmicTemplate1.tsx",
+          "importSpec": {
+            "modulePath": "Template1.tsx"
+          },
+          "cssFilePath": "plasmic/bentuk_cintav_2/PlasmicTemplate1.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [],
@@ -104,6 +117,26 @@
           "name": "Fetcher",
           "displayName": "plasmic-data-source-fetcher",
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
+        }
+      ]
+    },
+    {
+      "projectId": "r3ASNrnyvLLLAtDvzUioQ",
+      "projectApiToken": "eSFGpQaYCtO9sRbPuQ2Ll9dmLOg8I4oKhx6e1PuCrsfmUIVbFbSXcy32UrPTwF9zX2HVXA0xaIKJNhCMHvA",
+      "projectName": "react-slick",
+      "version": "3.15.0",
+      "cssFilePath": "plasmic/react_slick/plasmic_react_slick.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "codeComponents": [
+        {
+          "id": "HOQUyOpClJ",
+          "name": "Slider",
+          "displayName": "hostless-slider",
+          "componentImportPath": "react-slick"
         }
       ]
     }
