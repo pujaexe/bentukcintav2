@@ -156,6 +156,26 @@
           "id": "8wYuQ9ltP1",
           "name": "WhatsappSvgrepoComsvgIcon",
           "moduleFilePath": "plasmic/bentuk_cintav_2/icons/PlasmicIcon__WhatsappSvgrepoComsvg.tsx"
+        },
+        {
+          "id": "LT2cH1PbKL",
+          "name": "CloseCircleSvgrepoComsvgIcon",
+          "moduleFilePath": "plasmic/bentuk_cintav_2/icons/PlasmicIcon__CloseCircleSvgrepoComsvg.tsx"
+        },
+        {
+          "id": "cM9KKnXrjB",
+          "name": "WashingHandsSvgrepoComsvgIcon",
+          "moduleFilePath": "plasmic/bentuk_cintav_2/icons/PlasmicIcon__WashingHandsSvgrepoComsvg.tsx"
+        },
+        {
+          "id": "ioPnHlLgy4",
+          "name": "Mask2SvgrepoComsvgIcon",
+          "moduleFilePath": "plasmic/bentuk_cintav_2/icons/PlasmicIcon__Mask2SvgrepoComsvg.tsx"
+        },
+        {
+          "id": "DcuxjPu_O-",
+          "name": "SocialDistancingSvgrepoComsvgIcon",
+          "moduleFilePath": "plasmic/bentuk_cintav_2/icons/PlasmicIcon__SocialDistancingSvgrepoComsvg.tsx"
         }
       ],
       "images": [

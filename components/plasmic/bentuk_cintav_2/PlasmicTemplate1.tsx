@@ -21,6 +21,12 @@ import * as p from "@plasmicapp/react-web";
 import * as ph from "@plasmicapp/react-web/lib/host";
 
 import {
+  usePlasmicDataConfig,
+  executePlasmicDataOp,
+  usePlasmicDataOp
+} from "@plasmicapp/react-web/lib/data-sources";
+
+import {
   hasVariant,
   classNames,
   wrapWithClassName,
@@ -41,6 +47,8 @@ import { Embed } from "@plasmicpkgs/plasmic-basic-components"; // plasmic-import
 import { Iframe } from "@plasmicpkgs/plasmic-basic-components"; // plasmic-import: CMDBvOhaI4s/codeComponent
 import Button from "../../Button"; // plasmic-import: 02HmyteR4qq/component
 import WhatsappButton from "../../WhatsappButton"; // plasmic-import: -w4zVRfnGC/component
+import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal"; // plasmic-import: xx93QbkHH5i/codeComponent
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources"; // plasmic-import: lP7-syqRi0Vod/codeComponent
 
 import { useScreenVariants as useScreenVariants_7YtAkblAUxFb } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 7Yt-akblAUxFb/globalVariant
 
@@ -53,6 +61,10 @@ import sty from "./PlasmicTemplate1.module.css"; // plasmic-import: tCLmdV1-a5/c
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: 2oSyQCFheDJ/icon
 import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: XBieVn7nEqJ/icon
 import WhatsappSvgrepoComsvgIcon from "./icons/PlasmicIcon__WhatsappSvgrepoComsvg"; // plasmic-import: 8wYuQ9ltP1/icon
+import CloseCircleSvgrepoComsvgIcon from "./icons/PlasmicIcon__CloseCircleSvgrepoComsvg"; // plasmic-import: LT2cH1PbKL/icon
+import WashingHandsSvgrepoComsvgIcon from "./icons/PlasmicIcon__WashingHandsSvgrepoComsvg"; // plasmic-import: cM9KKnXrjB/icon
+import Mask2SvgrepoComsvgIcon from "./icons/PlasmicIcon__Mask2SvgrepoComsvg"; // plasmic-import: ioPnHlLgy4/icon
+import SocialDistancingSvgrepoComsvgIcon from "./icons/PlasmicIcon__SocialDistancingSvgrepoComsvg"; // plasmic-import: DcuxjPu_O-/icon
 
 export type PlasmicTemplate1__VariantMembers = {};
 export type PlasmicTemplate1__VariantsArgs = {};
@@ -93,10 +105,13 @@ export type PlasmicTemplate1__OverridesType = {
   contentWrapper3?: p.Flex<"div">;
   title3?: p.Flex<"div">;
   iframe?: p.Flex<typeof Iframe>;
-  button?: p.Flex<typeof Button>;
   footer?: p.Flex<"div">;
   whatsappButton?: p.Flex<typeof WhatsappButton>;
-  svg?: p.Flex<"svg">;
+  link?: p.Flex<"a"> & Partial<LinkProps>;
+  modal?: p.Flex<typeof AntdModal>;
+  part1?: p.Flex<"div">;
+  part12?: p.Flex<"div">;
+  part13?: p.Flex<"div">;
 };
 
 export interface DefaultTemplate1Props {
@@ -161,6 +176,12 @@ function PlasmicTemplate1__RenderFunc(props: {
 
         valueProp: "clickedImgUrl",
         onChangeProp: "onClickedImgUrlChange"
+      },
+      {
+        path: "modal.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx]
@@ -1050,13 +1071,16 @@ function PlasmicTemplate1__RenderFunc(props: {
                 className={classNames(projectcss.all, sty.freeBox___2E5Gb)}
                 key={currentIndex}
               >
-                <p.PlasmicLink
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.a,
-                    sty.link__log6N
-                  )}
-                  component={Link}
+                <p.PlasmicImg
+                  alt={""}
+                  className={classNames(sty.img__rYhH)}
+                  displayHeight={"300px" as const}
+                  displayMaxHeight={"none" as const}
+                  displayMaxWidth={"none" as const}
+                  displayMinHeight={"0" as const}
+                  displayMinWidth={"0" as const}
+                  displayWidth={"300px" as const}
+                  loading={"lazy" as const}
                   onClick={async event => {
                     const $steps = {};
                     $steps["updatePreviewPopup"] = true
@@ -1066,7 +1090,7 @@ function PlasmicTemplate1__RenderFunc(props: {
                               {
                                 type: "InteractionArgLoc",
                                 actionName: "updateVariable",
-                                interactionUuid: "7HcK6xNhB",
+                                interactionUuid: "kpWSlddWS",
                                 componentUuid: "tCLmdV1-a5",
                                 argName: "variable"
                               },
@@ -1079,7 +1103,7 @@ function PlasmicTemplate1__RenderFunc(props: {
                               {
                                 type: "InteractionArgLoc",
                                 actionName: "updateVariable",
-                                interactionUuid: "7HcK6xNhB",
+                                interactionUuid: "kpWSlddWS",
                                 componentUuid: "tCLmdV1-a5",
                                 argName: "operation"
                               },
@@ -1090,7 +1114,7 @@ function PlasmicTemplate1__RenderFunc(props: {
                             {
                               type: "InteractionLoc",
                               actionName: "updateVariable",
-                              interactionUuid: "7HcK6xNhB",
+                              interactionUuid: "kpWSlddWS",
                               componentUuid: "tCLmdV1-a5"
                             },
                             () =>
@@ -1121,20 +1145,20 @@ function PlasmicTemplate1__RenderFunc(props: {
                         {
                           type: "InteractionLoc",
                           actionName: "updateVariable",
-                          interactionUuid: "7HcK6xNhB",
+                          interactionUuid: "kpWSlddWS",
                           componentUuid: "tCLmdV1-a5"
                         },
                         $steps["updatePreviewPopup"]
                       );
                     }
-                    $steps["clickedImgUrl"] = true
+                    $steps["updateClickedImgUrl"] = true
                       ? (() => {
                           const actionArgs = {
                             variable: __wrapUserFunction(
                               {
                                 type: "InteractionArgLoc",
                                 actionName: "updateVariable",
-                                interactionUuid: "kC7VM-RAa",
+                                interactionUuid: "0D-Nx3YxB",
                                 componentUuid: "tCLmdV1-a5",
                                 argName: "variable"
                               },
@@ -1147,18 +1171,28 @@ function PlasmicTemplate1__RenderFunc(props: {
                               {
                                 type: "InteractionArgLoc",
                                 actionName: "updateVariable",
-                                interactionUuid: "kC7VM-RAa",
+                                interactionUuid: "0D-Nx3YxB",
                                 componentUuid: "tCLmdV1-a5",
                                 argName: "operation"
                               },
                               () => 0
+                            ),
+                            value: __wrapUserFunction(
+                              {
+                                type: "InteractionArgLoc",
+                                actionName: "updateVariable",
+                                interactionUuid: "0D-Nx3YxB",
+                                componentUuid: "tCLmdV1-a5",
+                                argName: "value"
+                              },
+                              () => currentItem.photoGallery
                             )
                           };
                           return __wrapUserFunction(
                             {
                               type: "InteractionLoc",
                               actionName: "updateVariable",
-                              interactionUuid: "kC7VM-RAa",
+                              interactionUuid: "0D-Nx3YxB",
                               componentUuid: "tCLmdV1-a5"
                             },
                             () =>
@@ -1181,50 +1215,34 @@ function PlasmicTemplate1__RenderFunc(props: {
                         })()
                       : undefined;
                     if (
-                      typeof $steps["clickedImgUrl"] === "object" &&
-                      typeof $steps["clickedImgUrl"].then === "function"
+                      typeof $steps["updateClickedImgUrl"] === "object" &&
+                      typeof $steps["updateClickedImgUrl"].then === "function"
                     ) {
-                      $steps["clickedImgUrl"] = await __wrapUserPromise(
+                      $steps["updateClickedImgUrl"] = await __wrapUserPromise(
                         {
                           type: "InteractionLoc",
                           actionName: "updateVariable",
-                          interactionUuid: "kC7VM-RAa",
+                          interactionUuid: "0D-Nx3YxB",
                           componentUuid: "tCLmdV1-a5"
                         },
-                        $steps["clickedImgUrl"]
+                        $steps["updateClickedImgUrl"]
                       );
                     }
                   }}
-                  platform={"nextjs"}
-                >
-                  <p.PlasmicImg
-                    alt={""}
-                    className={classNames(sty.img__rYhH)}
-                    displayHeight={"300px" as const}
-                    displayMaxHeight={"none" as const}
-                    displayMaxWidth={"none" as const}
-                    displayMinHeight={"0" as const}
-                    displayMinWidth={"0" as const}
-                    displayWidth={"300px" as const}
-                    loading={"lazy" as const}
-                    onClick={async event => {
-                      const $steps = {};
-                    }}
-                    src={(() => {
-                      try {
-                        return currentItem.photoGallery;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "https://via.placeholder.com/150";
-                        }
-                        throw e;
+                  src={(() => {
+                    try {
+                      return currentItem.photoGallery;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "https://via.placeholder.com/150";
                       }
-                    })()}
-                  />
-                </p.PlasmicLink>
+                      throw e;
+                    }
+                  })()}
+                />
               </div>
             ))}
           </div>
@@ -1320,9 +1338,7 @@ function PlasmicTemplate1__RenderFunc(props: {
 
           <div className={classNames(projectcss.all, sty.freeBox__iloPk)}>
             <Button
-              data-plasmic-name={"button"}
-              data-plasmic-override={overrides.button}
-              className={classNames("__wab_instance", sty.button)}
+              className={classNames("__wab_instance", sty.button__ghDH)}
               color={"yellow" as const}
               link={(() => {
                 try {
@@ -1369,11 +1385,9 @@ function PlasmicTemplate1__RenderFunc(props: {
         className={classNames("__wab_instance", sty.whatsappButton)}
         whatsapp2={
           <p.PlasmicLink
-            className={classNames(
-              projectcss.all,
-              projectcss.a,
-              sty.link__mxh1M
-            )}
+            data-plasmic-name={"link"}
+            data-plasmic-override={overrides.link}
+            className={classNames(projectcss.all, projectcss.a, sty.link)}
             component={Link}
             href={(() => {
               try {
@@ -1395,9 +1409,7 @@ function PlasmicTemplate1__RenderFunc(props: {
             platform={"nextjs"}
           >
             <WhatsappSvgrepoComsvgIcon
-              data-plasmic-name={"svg"}
-              data-plasmic-override={overrides.svg}
-              className={classNames(projectcss.all, sty.svg)}
+              className={classNames(projectcss.all, sty.svg__dkJa0)}
               role={"img"}
             />
           </p.PlasmicLink>
@@ -1417,7 +1429,146 @@ function PlasmicTemplate1__RenderFunc(props: {
           throw e;
         }
       })() ? (
-        <div className={classNames(projectcss.all, sty.freeBox___0C8T9)}>
+        <div
+          className={classNames(projectcss.all, sty.freeBox___0C8T9)}
+          onClick={async event => {
+            const $steps = {};
+            $steps["updatePreviewPopup"] = true
+              ? (() => {
+                  const actionArgs = {
+                    variable: __wrapUserFunction(
+                      {
+                        type: "InteractionArgLoc",
+                        actionName: "updateVariable",
+                        interactionUuid: "bpP0WZxxr",
+                        componentUuid: "tCLmdV1-a5",
+                        argName: "variable"
+                      },
+                      () => ({
+                        objRoot: $state,
+                        variablePath: ["previewPopup"]
+                      })
+                    ),
+                    operation: __wrapUserFunction(
+                      {
+                        type: "InteractionArgLoc",
+                        actionName: "updateVariable",
+                        interactionUuid: "bpP0WZxxr",
+                        componentUuid: "tCLmdV1-a5",
+                        argName: "operation"
+                      },
+                      () => 4
+                    )
+                  };
+                  return __wrapUserFunction(
+                    {
+                      type: "InteractionLoc",
+                      actionName: "updateVariable",
+                      interactionUuid: "bpP0WZxxr",
+                      componentUuid: "tCLmdV1-a5"
+                    },
+                    () =>
+                      (({ variable, value, startIndex, deleteCount }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        const oldValue = p.get(objRoot, variablePath);
+                        p.set(objRoot, variablePath, !oldValue);
+                        return !oldValue;
+                      })?.apply(null, [actionArgs]),
+                    actionArgs
+                  );
+                })()
+              : undefined;
+            if (
+              typeof $steps["updatePreviewPopup"] === "object" &&
+              typeof $steps["updatePreviewPopup"].then === "function"
+            ) {
+              $steps["updatePreviewPopup"] = await __wrapUserPromise(
+                {
+                  type: "InteractionLoc",
+                  actionName: "updateVariable",
+                  interactionUuid: "bpP0WZxxr",
+                  componentUuid: "tCLmdV1-a5"
+                },
+                $steps["updatePreviewPopup"]
+              );
+            }
+          }}
+        >
+          <CloseCircleSvgrepoComsvgIcon
+            className={classNames(projectcss.all, sty.svg__iKwfz)}
+            onClick={async event => {
+              const $steps = {};
+              $steps["updatePreviewPopup"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: __wrapUserFunction(
+                        {
+                          type: "InteractionArgLoc",
+                          actionName: "updateVariable",
+                          interactionUuid: "YbAm5jRcS",
+                          componentUuid: "tCLmdV1-a5",
+                          argName: "variable"
+                        },
+                        () => ({
+                          objRoot: $state,
+                          variablePath: ["previewPopup"]
+                        })
+                      ),
+                      operation: __wrapUserFunction(
+                        {
+                          type: "InteractionArgLoc",
+                          actionName: "updateVariable",
+                          interactionUuid: "YbAm5jRcS",
+                          componentUuid: "tCLmdV1-a5",
+                          argName: "operation"
+                        },
+                        () => 4
+                      )
+                    };
+                    return __wrapUserFunction(
+                      {
+                        type: "InteractionLoc",
+                        actionName: "updateVariable",
+                        interactionUuid: "YbAm5jRcS",
+                        componentUuid: "tCLmdV1-a5"
+                      },
+                      () =>
+                        (({ variable, value, startIndex, deleteCount }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          const oldValue = p.get(objRoot, variablePath);
+                          p.set(objRoot, variablePath, !oldValue);
+                          return !oldValue;
+                        })?.apply(null, [actionArgs]),
+                      actionArgs
+                    );
+                  })()
+                : undefined;
+              if (
+                typeof $steps["updatePreviewPopup"] === "object" &&
+                typeof $steps["updatePreviewPopup"].then === "function"
+              ) {
+                $steps["updatePreviewPopup"] = await __wrapUserPromise(
+                  {
+                    type: "InteractionLoc",
+                    actionName: "updateVariable",
+                    interactionUuid: "YbAm5jRcS",
+                    componentUuid: "tCLmdV1-a5"
+                  },
+                  $steps["updatePreviewPopup"]
+                );
+              }
+            }}
+            role={"img"}
+          />
+
           {(() => {
             try {
               return true;
@@ -1458,6 +1609,201 @@ function PlasmicTemplate1__RenderFunc(props: {
           ) : null}
         </div>
       ) : null}
+      <AntdModal
+        data-plasmic-name={"modal"}
+        data-plasmic-override={overrides.modal}
+        className={classNames("__wab_instance", sty.modal)}
+        defaultStylesClassName={classNames(
+          projectcss.root_reset,
+          projectcss.plasmic_default_styles,
+          projectcss.plasmic_mixins,
+          projectcss.plasmic_tokens,
+          plasmic_antd_5_hostless_css.plasmic_tokens
+        )}
+        footer={
+          true ? (
+            <div className={classNames(projectcss.all, sty.freeBox___9E00C)}>
+              <Button
+                className={classNames("__wab_instance", sty.button__hKqE)}
+                onClick={async event => {
+                  const $steps = {};
+                  $steps["updateModalOpen"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: __wrapUserFunction(
+                            {
+                              type: "InteractionArgLoc",
+                              actionName: "updateVariable",
+                              interactionUuid: "KJWrgGX1s",
+                              componentUuid: "tCLmdV1-a5",
+                              argName: "variable"
+                            },
+                            () => ({
+                              objRoot: $state,
+                              variablePath: ["modal", "open"]
+                            })
+                          ),
+                          operation: __wrapUserFunction(
+                            {
+                              type: "InteractionArgLoc",
+                              actionName: "updateVariable",
+                              interactionUuid: "KJWrgGX1s",
+                              componentUuid: "tCLmdV1-a5",
+                              argName: "operation"
+                            },
+                            () => 4
+                          )
+                        };
+                        return __wrapUserFunction(
+                          {
+                            type: "InteractionLoc",
+                            actionName: "updateVariable",
+                            interactionUuid: "KJWrgGX1s",
+                            componentUuid: "tCLmdV1-a5"
+                          },
+                          () =>
+                            (({ variable, value, startIndex, deleteCount }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              const oldValue = p.get(objRoot, variablePath);
+                              p.set(objRoot, variablePath, !oldValue);
+                              return !oldValue;
+                            })?.apply(null, [actionArgs]),
+                          actionArgs
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    typeof $steps["updateModalOpen"] === "object" &&
+                    typeof $steps["updateModalOpen"].then === "function"
+                  ) {
+                    $steps["updateModalOpen"] = await __wrapUserPromise(
+                      {
+                        type: "InteractionLoc",
+                        actionName: "updateVariable",
+                        interactionUuid: "KJWrgGX1s",
+                        componentUuid: "tCLmdV1-a5"
+                      },
+                      $steps["updateModalOpen"]
+                    );
+                  }
+                }}
+              >
+                {"Buka Undangan"}
+              </Button>
+            </div>
+          ) : null
+        }
+        modalScopeClassName={sty["modal__modal"]}
+        onOpenChange={p.generateStateOnChangeProp($state, ["modal", "open"])}
+        open={p.generateStateValueProp($state, ["modal", "open"])}
+        title={
+          <React.Fragment>
+            {(() => {
+              try {
+                return $ctx.graphCmsItem.title;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "Jonh & Merry";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
+        }
+      >
+        <p.Stack
+          as={"div"}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.freeBox__ckUmp)}
+        >
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__zmVXz
+            )}
+          >
+            {
+              "Tanpa mengurangi rasa hormat, dikarenakan situasi yang sedang terjadi ditengah Pandemi Covid-19 ini kami memohon maaf karena acara akan diselenggarakan sesuai peraturan dan himbauan pemerintah."
+            }
+          </div>
+          <div className={classNames(projectcss.all, sty.freeBox__nYxRe)}>
+            <p.Stack
+              as={"div"}
+              data-plasmic-name={"part1"}
+              data-plasmic-override={overrides.part1}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.part1)}
+            >
+              <WashingHandsSvgrepoComsvgIcon
+                className={classNames(projectcss.all, sty.svg__oghhY)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__gVs4B
+                )}
+              >
+                {"Membersihkan Tangan"}
+              </div>
+            </p.Stack>
+            <p.Stack
+              as={"div"}
+              data-plasmic-name={"part12"}
+              data-plasmic-override={overrides.part12}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.part12)}
+            >
+              <Mask2SvgrepoComsvgIcon
+                className={classNames(projectcss.all, sty.svg__s5FDk)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__eGtAr
+                )}
+              >
+                {"Memakai Masker"}
+              </div>
+            </p.Stack>
+            <p.Stack
+              as={"div"}
+              data-plasmic-name={"part13"}
+              data-plasmic-override={overrides.part13}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.part13)}
+            >
+              <SocialDistancingSvgrepoComsvgIcon
+                className={classNames(projectcss.all, sty.svg__cLhqY)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___8IySs
+                )}
+              >
+                {"Menjaga Jarak"}
+              </div>
+            </p.Stack>
+          </div>
+        </p.Stack>
+      </AntdModal>
     </div>
   ) as React.ReactElement | null;
 }
@@ -1483,10 +1829,13 @@ const PlasmicDescendants = {
     "contentWrapper3",
     "title3",
     "iframe",
-    "button",
     "footer",
     "whatsappButton",
-    "svg"
+    "link",
+    "modal",
+    "part1",
+    "part12",
+    "part13"
   ],
   hero: ["hero", "desc"],
   desc: ["desc"],
@@ -1517,14 +1866,17 @@ const PlasmicDescendants = {
   title2: ["title2"],
   youTube: ["youTube"],
   embedHtml: ["embedHtml"],
-  map: ["map", "contentWrapper3", "title3", "iframe", "button"],
-  contentWrapper3: ["contentWrapper3", "title3", "iframe", "button"],
+  map: ["map", "contentWrapper3", "title3", "iframe"],
+  contentWrapper3: ["contentWrapper3", "title3", "iframe"],
   title3: ["title3"],
   iframe: ["iframe"],
-  button: ["button"],
   footer: ["footer"],
-  whatsappButton: ["whatsappButton", "svg"],
-  svg: ["svg"]
+  whatsappButton: ["whatsappButton", "link"],
+  link: ["link"],
+  modal: ["modal", "part1", "part12", "part13"],
+  part1: ["part1"],
+  part12: ["part12"],
+  part13: ["part13"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1549,10 +1901,13 @@ type NodeDefaultElementType = {
   contentWrapper3: "div";
   title3: "div";
   iframe: typeof Iframe;
-  button: typeof Button;
   footer: "div";
   whatsappButton: typeof WhatsappButton;
-  svg: "svg";
+  link: "a";
+  modal: typeof AntdModal;
+  part1: "div";
+  part12: "div";
+  part13: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1633,10 +1988,13 @@ export const PlasmicTemplate1 = Object.assign(
     contentWrapper3: makeNodeComponent("contentWrapper3"),
     title3: makeNodeComponent("title3"),
     iframe: makeNodeComponent("iframe"),
-    button: makeNodeComponent("button"),
     footer: makeNodeComponent("footer"),
     whatsappButton: makeNodeComponent("whatsappButton"),
-    svg: makeNodeComponent("svg"),
+    link: makeNodeComponent("link"),
+    modal: makeNodeComponent("modal"),
+    part1: makeNodeComponent("part1"),
+    part12: makeNodeComponent("part12"),
+    part13: makeNodeComponent("part13"),
 
     // Metadata about props expected for PlasmicTemplate1
     internalVariantProps: PlasmicTemplate1__VariantProps,
