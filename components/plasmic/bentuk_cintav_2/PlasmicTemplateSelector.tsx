@@ -38,6 +38,7 @@ import {
 } from "@plasmicapp/react-web";
 import Template1 from "../../Template1"; // plasmic-import: tCLmdV1-a5/component
 import Template2 from "../../Template2"; // plasmic-import: Xfvd6ITT7P8/component
+import Template3 from "../../Template3"; // plasmic-import: -WLyt8cvAaz/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -46,10 +47,10 @@ import projectcss from "./plasmic_bentuk_cintav_2.module.css"; // plasmic-import
 import sty from "./PlasmicTemplateSelector.module.css"; // plasmic-import: pbUMAB_a20/css
 
 export type PlasmicTemplateSelector__VariantMembers = {
-  template: "template1" | "template2";
+  template: "template1" | "template2" | "template3";
 };
 export type PlasmicTemplateSelector__VariantsArgs = {
-  template?: SingleChoiceArg<"template1" | "template2">;
+  template?: SingleChoiceArg<"template1" | "template2" | "template3">;
 };
 type VariantPropType = keyof PlasmicTemplateSelector__VariantsArgs;
 export const PlasmicTemplateSelector__VariantProps = new Array<VariantPropType>(
@@ -64,10 +65,11 @@ export type PlasmicTemplateSelector__OverridesType = {
   root?: p.Flex<"div">;
   template1?: p.Flex<typeof Template1>;
   template2?: p.Flex<typeof Template2>;
+  template3?: p.Flex<typeof Template3>;
 };
 
 export interface DefaultTemplateSelectorProps {
-  template?: SingleChoiceArg<"template1" | "template2">;
+  template?: SingleChoiceArg<"template1" | "template2" | "template3">;
   className?: string;
 }
 
@@ -139,6 +141,18 @@ function PlasmicTemplateSelector__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.template
+      },
+      {
+        path: "template3.previewPopup",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "template3.clickedImgUrl",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "" as const
       }
     ],
     [$props, $ctx]
@@ -169,11 +183,22 @@ function PlasmicTemplateSelector__RenderFunc(props: {
             $state,
             "template",
             "template2"
+          ),
+          [sty.roottemplate_template3]: hasVariant(
+            $state,
+            "template",
+            "template3"
           )
         }
       )}
     >
-      {(hasVariant($state, "template", "template2") ? false : true) ? (
+      {(
+        hasVariant($state, "template", "template3")
+          ? false
+          : hasVariant($state, "template", "template2")
+          ? false
+          : true
+      ) ? (
         <Template1
           data-plasmic-name={"template1"}
           data-plasmic-override={overrides.template1}
@@ -187,6 +212,11 @@ function PlasmicTemplateSelector__RenderFunc(props: {
               $state,
               "template",
               "template2"
+            ),
+            [sty.template1template_template3]: hasVariant(
+              $state,
+              "template",
+              "template3"
             )
           })}
           clickedImgUrl={p.generateStateValueProp($state, [
@@ -207,7 +237,13 @@ function PlasmicTemplateSelector__RenderFunc(props: {
           ])}
         />
       ) : null}
-      {(hasVariant($state, "template", "template1") ? false : true) ? (
+      {(
+        hasVariant($state, "template", "template3")
+          ? false
+          : hasVariant($state, "template", "template1")
+          ? false
+          : true
+      ) ? (
         <Template2
           data-plasmic-name={"template2"}
           data-plasmic-override={overrides.template2}
@@ -216,6 +252,16 @@ function PlasmicTemplateSelector__RenderFunc(props: {
               $state,
               "template",
               "template1"
+            ),
+            [sty.template2template_template2]: hasVariant(
+              $state,
+              "template",
+              "template2"
+            ),
+            [sty.template2template_template3]: hasVariant(
+              $state,
+              "template",
+              "template3"
             )
           })}
           clickedImgUrl={p.generateStateValueProp($state, [
@@ -232,6 +278,51 @@ function PlasmicTemplateSelector__RenderFunc(props: {
           ])}
           previewPopup={p.generateStateValueProp($state, [
             "template2",
+            "previewPopup"
+          ])}
+        />
+      ) : null}
+      {(
+        hasVariant($state, "template", "template2")
+          ? false
+          : hasVariant($state, "template", "template1")
+          ? false
+          : true
+      ) ? (
+        <Template3
+          data-plasmic-name={"template3"}
+          data-plasmic-override={overrides.template3}
+          className={classNames("__wab_instance", sty.template3, {
+            [sty.template3template_template1]: hasVariant(
+              $state,
+              "template",
+              "template1"
+            ),
+            [sty.template3template_template2]: hasVariant(
+              $state,
+              "template",
+              "template2"
+            ),
+            [sty.template3template_template3]: hasVariant(
+              $state,
+              "template",
+              "template3"
+            )
+          })}
+          clickedImgUrl={p.generateStateValueProp($state, [
+            "template3",
+            "clickedImgUrl"
+          ])}
+          onClickedImgUrlChange={p.generateStateOnChangeProp($state, [
+            "template3",
+            "clickedImgUrl"
+          ])}
+          onPreviewPopupChange={p.generateStateOnChangeProp($state, [
+            "template3",
+            "previewPopup"
+          ])}
+          previewPopup={p.generateStateValueProp($state, [
+            "template3",
             "previewPopup"
           ])}
         />
@@ -241,9 +332,10 @@ function PlasmicTemplateSelector__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "template1", "template2"],
+  root: ["root", "template1", "template2", "template3"],
   template1: ["template1"],
-  template2: ["template2"]
+  template2: ["template2"],
+  template3: ["template3"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -252,6 +344,7 @@ type NodeDefaultElementType = {
   root: "div";
   template1: typeof Template1;
   template2: typeof Template2;
+  template3: typeof Template3;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -316,6 +409,7 @@ export const PlasmicTemplateSelector = Object.assign(
     // Helper components rendering sub-elements
     template1: makeNodeComponent("template1"),
     template2: makeNodeComponent("template2"),
+    template3: makeNodeComponent("template3"),
 
     // Metadata about props expected for PlasmicTemplateSelector
     internalVariantProps: PlasmicTemplateSelector__VariantProps,

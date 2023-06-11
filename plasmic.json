@@ -165,6 +165,19 @@
           "cssFilePath": "plasmic/bentuk_cintav_2/PlasmicTemplateSelector.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "-WLyt8cvAaz",
+          "name": "Template3",
+          "type": "managed",
+          "projectId": "62fk78rY9xoShC3bnaKgA9",
+          "renderModuleFilePath": "plasmic/bentuk_cintav_2/PlasmicTemplate3.tsx",
+          "importSpec": {
+            "modulePath": "Template3.tsx"
+          },
+          "cssFilePath": "plasmic/bentuk_cintav_2/PlasmicTemplate3.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -254,6 +267,11 @@
           "id": "aXy0qFhDI",
           "name": "bunga 1-min.png",
           "filePath": "../public/plasmic/bentuk_cintav_2/images/bunga1Minpng.png"
+        },
+        {
+          "id": "-R-CqeQlA",
+          "name": "daunimage.png",
+          "filePath": "../public/plasmic/bentuk_cintav_2/images/daunimagepng.png"
         }
       ],
       "indirect": false,
@@ -591,7 +609,8 @@
           "displayName": "global-parallax-provider",
           "componentImportPath": "@plasmicpkgs/react-scroll-parallax"
         }
-      ]
+      ],
+      "jsBundleThemes": []
     },
     {
       "projectId": "58GpZjZCWTaJ8AUhpCwt2K",
@@ -611,7 +630,8 @@
           "displayName": "hostless-reveal",
           "componentImportPath": "@plasmicpkgs/react-awesome-reveal"
         }
-      ]
+      ],
+      "jsBundleThemes": []
     }
   ],
   "globalVariants": {

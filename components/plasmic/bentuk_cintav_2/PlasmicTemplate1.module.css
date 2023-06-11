@@ -9,6 +9,11 @@
   background: #ffffff;
   min-width: 0;
 }
+.pageMetadataOverride:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+}
 .hero {
   display: flex;
   position: relative;
@@ -1193,8 +1198,9 @@
   max-width: 100%;
   object-fit: cover;
   position: relative;
+  display: flex;
 }
-.freeBox__ckUmp {
+.freeBox__mgDkk {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -1202,46 +1208,112 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
-  padding: 8px;
 }
-.freeBox__ckUmp > :global(.__wab_flex-container) {
+.freeBox__mgDkk > :global(.__wab_flex-container) {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   min-width: 0;
-  margin-top: calc(0px - 24px);
-  height: calc(100% + 24px);
+  margin-top: calc(0px - 0px);
+  height: calc(100% + 0px);
 }
-.freeBox__ckUmp > :global(.__wab_flex-container) > *,
-.freeBox__ckUmp > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__ckUmp > :global(.__wab_flex-container) > picture > img,
-.freeBox__ckUmp
+.freeBox__mgDkk > :global(.__wab_flex-container) > *,
+.freeBox__mgDkk > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__mgDkk > :global(.__wab_flex-container) > picture > img,
+.freeBox__mgDkk
   > :global(.__wab_flex-container)
   > :global(.__wab_slot)
   > picture
   > img {
-  margin-top: 24px;
+  margin-top: 0px;
 }
-.text__zmVXz {
-  font-family: "Poppins", sans-serif;
-}
-.text__irCto {
-  font-family: "Poppins", sans-serif;
-  display: none;
-}
-.freeBox__nYxRe {
+.freeBox__j32P8 {
   display: flex;
   position: relative;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-bottom: 24px;
+  margin-top: calc(12px + 0px) !important;
+  min-width: 0;
+  padding: 8px;
+}
+.text__f4E0B {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  font-family: "Allura";
+  font-size: 42px;
+  color: #53602b;
+  min-width: 0;
+}
+.img___1JKkj {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 64px;
+}
+.img___1JKkj > picture > img {
+  object-fit: cover;
+}
+.img___1JKkj > :global(.__wab_img-spacer) > img {
+  object-fit: cover;
+}
+.freeBox__chPGi {
+  display: flex;
+  position: relative;
+  flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
   width: 100%;
   height: auto;
   max-width: 100%;
+  background: #fafafa;
+  min-width: 0;
+  border-radius: 12px;
+  padding: 16px;
+}
+.text___5W8Xs {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  display: block;
+}
+.freeBox__rIqCc {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-top: calc(24px + 0px) !important;
   min-width: 0;
   padding: 8px;
 }
-.part1 {
+.freeBox__rIqCc > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-left: calc(0px - 12px);
+  width: calc(100% + 12px);
+}
+.freeBox__rIqCc > :global(.__wab_flex-container) > *,
+.freeBox__rIqCc > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__rIqCc > :global(.__wab_flex-container) > picture > img,
+.freeBox__rIqCc
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 12px;
+}
+.part14 {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -1249,9 +1321,11 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
+  border-radius: 12px;
   padding: 8px;
+  border: 1px solid #f0f0f0;
 }
-.part1 > :global(.__wab_flex-container) {
+.part14 > :global(.__wab_flex-container) {
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -1259,30 +1333,34 @@
   margin-top: calc(0px - 12px);
   height: calc(100% + 12px);
 }
-.part1 > :global(.__wab_flex-container) > *,
-.part1 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.part1 > :global(.__wab_flex-container) > picture > img,
-.part1 > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
+.part14 > :global(.__wab_flex-container) > *,
+.part14 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.part14 > :global(.__wab_flex-container) > picture > img,
+.part14
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
   margin-top: 12px;
 }
-.svg__oghhY {
+.svg__gklJ4 {
   position: relative;
   object-fit: cover;
   max-width: 100%;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
 }
-.text__gVs4B {
+.text__uylHh {
   position: relative;
   width: auto;
   height: auto;
   max-width: 100%;
   font-family: "Poppins", sans-serif;
-  font-size: 12px;
+  font-size: 10px;
   text-align: center;
 }
-.part12 {
+.part15 {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -1290,9 +1368,11 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
+  border-radius: 12px;
   padding: 8px;
+  border: 1px solid #f0f0f0;
 }
-.part12 > :global(.__wab_flex-container) {
+.part15 > :global(.__wab_flex-container) {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -1300,34 +1380,34 @@
   margin-top: calc(0px - 12px);
   height: calc(100% + 12px);
 }
-.part12 > :global(.__wab_flex-container) > *,
-.part12 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.part12 > :global(.__wab_flex-container) > picture > img,
-.part12
+.part15 > :global(.__wab_flex-container) > *,
+.part15 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.part15 > :global(.__wab_flex-container) > picture > img,
+.part15
   > :global(.__wab_flex-container)
   > :global(.__wab_slot)
   > picture
   > img {
   margin-top: 12px;
 }
-.svg__s5FDk {
+.svg___4BlfN {
   position: relative;
   object-fit: cover;
   max-width: 100%;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
 }
-.text__eGtAr {
+.text__tmMe {
   position: relative;
   width: auto;
   height: auto;
   max-width: 100%;
   font-family: "Poppins", sans-serif;
-  font-size: 12px;
+  font-size: 10px;
   text-align: center;
 }
-.part13 {
+.part16 {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -1335,9 +1415,11 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
+  border-radius: 12px;
   padding: 8px;
+  border: 1px solid #f0f0f0;
 }
-.part13 > :global(.__wab_flex-container) {
+.part16 > :global(.__wab_flex-container) {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -1345,34 +1427,41 @@
   margin-top: calc(0px - 12px);
   height: calc(100% + 12px);
 }
-.part13 > :global(.__wab_flex-container) > *,
-.part13 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.part13 > :global(.__wab_flex-container) > picture > img,
-.part13
+.part16 > :global(.__wab_flex-container) > *,
+.part16 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.part16 > :global(.__wab_flex-container) > picture > img,
+.part16
   > :global(.__wab_flex-container)
   > :global(.__wab_slot)
   > picture
   > img {
   margin-top: 12px;
 }
-.svg__cLhqY {
+.svg___2FXSg {
   position: relative;
   object-fit: cover;
   max-width: 100%;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
 }
-.text___8IySs {
+.text__psXm {
   position: relative;
   width: auto;
   height: auto;
   max-width: 100%;
   font-family: "Poppins", sans-serif;
-  font-size: 12px;
+  font-size: 10px;
   text-align: center;
 }
-.freeBox___9E00C {
+.text__v6W0 {
+  font-family: "Poppins", sans-serif;
+  font-size: 10px;
+  font-weight: 300;
+  color: #8b8b8b;
+  margin-bottom: 12px;
+}
+.freeBox__i3LDd {
   display: flex;
   position: relative;
   flex-direction: row;
@@ -1382,20 +1471,19 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
-  padding: 8px;
 }
-.button__hKqE:global(.__wab_instance) {
+.button__a8Y9R:global(.__wab_instance) {
   max-width: 100%;
   width: 100%;
   min-width: 0;
 }
-.svg__t9Nks {
+.svg__glHmT {
   position: relative;
   object-fit: cover;
   width: 1em;
   height: 1em;
 }
-.svg__nn0U {
+.svg__mMTr {
   position: relative;
   object-fit: cover;
   width: 1em;

@@ -145,27 +145,29 @@ function PlasmicInvitation__RenderFunc(props: {
                   <div
                     className={classNames(projectcss.all, sty.freeBox__fVjTa)}
                   >
-                    <TemplateSelector
-                      data-plasmic-name={"templateSelector"}
-                      data-plasmic-override={overrides.templateSelector}
-                      className={classNames(
-                        "__wab_instance",
-                        sty.templateSelector
-                      )}
-                      template={(() => {
-                        try {
-                          return $ctx.graphCmsItem.templateUse;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
+                    {true ? (
+                      <TemplateSelector
+                        data-plasmic-name={"templateSelector"}
+                        data-plasmic-override={overrides.templateSelector}
+                        className={classNames(
+                          "__wab_instance",
+                          sty.templateSelector
+                        )}
+                        template={(() => {
+                          try {
+                            return $ctx.graphCmsItem.templateUse;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
                           }
-                          throw e;
-                        }
-                      })()}
-                    />
+                        })()}
+                      />
+                    ) : null}
                   </div>
                 )}
               </ph.DataCtxReader>
