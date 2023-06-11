@@ -139,6 +139,32 @@
           "cssFilePath": "plasmic/bentuk_cintav_2/PlasmicImagePreview.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "Xfvd6ITT7P8",
+          "name": "Template2",
+          "type": "managed",
+          "projectId": "62fk78rY9xoShC3bnaKgA9",
+          "renderModuleFilePath": "plasmic/bentuk_cintav_2/PlasmicTemplate2.tsx",
+          "importSpec": {
+            "modulePath": "Template2.tsx"
+          },
+          "cssFilePath": "plasmic/bentuk_cintav_2/PlasmicTemplate2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "pbUMAB_a20",
+          "name": "TemplateSelector",
+          "type": "managed",
+          "projectId": "62fk78rY9xoShC3bnaKgA9",
+          "renderModuleFilePath": "plasmic/bentuk_cintav_2/PlasmicTemplateSelector.tsx",
+          "importSpec": {
+            "modulePath": "TemplateSelector.tsx"
+          },
+          "cssFilePath": "plasmic/bentuk_cintav_2/PlasmicTemplateSelector.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -176,6 +202,31 @@
           "id": "DcuxjPu_O-",
           "name": "SocialDistancingSvgrepoComsvgIcon",
           "moduleFilePath": "plasmic/bentuk_cintav_2/icons/PlasmicIcon__SocialDistancingSvgrepoComsvg.tsx"
+        },
+        {
+          "id": "MNB752PXfu",
+          "name": "LocationPinSvgrepoComsvgIcon",
+          "moduleFilePath": "plasmic/bentuk_cintav_2/icons/PlasmicIcon__LocationPinSvgrepoComsvg.tsx"
+        },
+        {
+          "id": "-IsdiWPjUL",
+          "name": "CalendarCheckSvgrepoComsvgIcon",
+          "moduleFilePath": "plasmic/bentuk_cintav_2/icons/PlasmicIcon__CalendarCheckSvgrepoComsvg.tsx"
+        },
+        {
+          "id": "PO8nVHU_jj",
+          "name": "ClockSvgrepoComsvgIcon",
+          "moduleFilePath": "plasmic/bentuk_cintav_2/icons/PlasmicIcon__ClockSvgrepoComsvg.tsx"
+        },
+        {
+          "id": "rgnhi2tidT",
+          "name": "CalendarSvgrepoComsvgIcon",
+          "moduleFilePath": "plasmic/bentuk_cintav_2/icons/PlasmicIcon__CalendarSvgrepoComsvg.tsx"
+        },
+        {
+          "id": "GDHEOglvzt",
+          "name": "ClockSvgrepoCom1SvgIcon",
+          "moduleFilePath": "plasmic/bentuk_cintav_2/icons/PlasmicIcon__ClockSvgrepoCom1Svg.tsx"
         }
       ],
       "images": [
@@ -183,6 +234,26 @@
           "id": "CwGLW5Nm6",
           "name": "puja.exe_wedding_couple_taking_pre-wedding_photos_in_the_golden_d939b991-0dfd-4bbb-9569-c6971b9198b6.png",
           "filePath": "../public/plasmic/bentuk_cintav_2/images/pujaexeWeddingCoupleTakingPreWeddingPhotosInTheGoldenD939B9910Dfd4Bbb9569C6971B9198B6Png.png"
+        },
+        {
+          "id": "0tjgH1qS9",
+          "name": "image-bottom-hero-min.png",
+          "filePath": "../public/plasmic/bentuk_cintav_2/images/imageBottomHeroMinpng.png"
+        },
+        {
+          "id": "3qJopELnf",
+          "name": "bg-watercolor-min.png",
+          "filePath": "../public/plasmic/bentuk_cintav_2/images/bgWatercolorMinpng.png"
+        },
+        {
+          "id": "mEs2Mx_Qw",
+          "name": "bunga tepi 1-min.png",
+          "filePath": "../public/plasmic/bentuk_cintav_2/images/bungaTepi1Minpng.png"
+        },
+        {
+          "id": "aXy0qFhDI",
+          "name": "bunga 1-min.png",
+          "filePath": "../public/plasmic/bentuk_cintav_2/images/bunga1Minpng.png"
         }
       ],
       "indirect": false,
@@ -495,6 +566,52 @@
         }
       ],
       "jsBundleThemes": []
+    },
+    {
+      "projectId": "84wxoth5npGrp6RRXPL88z",
+      "projectApiToken": "hOzXksPB8gkTrKnfJeV9VDS8m8dnIXQn1xxDQZ5MHxv9orQY6JNgwmk6aDMZPLkocV2KtD9gNJXv5JwIbbzIQ",
+      "projectName": "react-scroll-parallax-global",
+      "version": "4.16.0",
+      "cssFilePath": "plasmic/react_scroll_parallax_global/plasmic_react_scroll_parallax_global.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "plasmic/react_scroll_parallax_global/PlasmicGlobalContextsProvider.tsx",
+      "codeComponents": [
+        {
+          "id": "bozP4lLlAZ",
+          "name": "ParallaxWrapper",
+          "displayName": "hostless-scroll-parallax",
+          "componentImportPath": "@plasmicpkgs/react-scroll-parallax"
+        },
+        {
+          "id": "L6MfauX2Cw",
+          "name": "ParallaxProviderWrapper",
+          "displayName": "global-parallax-provider",
+          "componentImportPath": "@plasmicpkgs/react-scroll-parallax"
+        }
+      ]
+    },
+    {
+      "projectId": "58GpZjZCWTaJ8AUhpCwt2K",
+      "projectApiToken": "DIkcfhBwjMCJSjcxfBkMuy4NImyytq5EWylxVcpS9t9EpdhnPQuBgBGxmk00AB1itMFa1KXTxOKnrjN2PN9nlA",
+      "projectName": "react-awesome-reveal",
+      "version": "3.16.0",
+      "cssFilePath": "plasmic/react_awesome_reveal/plasmic_react_awesome_reveal.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "codeComponents": [
+        {
+          "id": "R6s1FdhksG",
+          "name": "Reveal",
+          "displayName": "hostless-reveal",
+          "componentImportPath": "@plasmicpkgs/react-awesome-reveal"
+        }
+      ]
     }
   ],
   "globalVariants": {

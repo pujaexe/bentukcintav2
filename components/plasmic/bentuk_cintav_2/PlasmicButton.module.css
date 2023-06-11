@@ -32,7 +32,8 @@
   background: #30a46c;
 }
 .rootcolor_yellow {
-  background: #f5d90a;
+  background: linear-gradient(37deg, #be6f11 0%, #fce27f 100%) 0% 0% / 100% 100%
+    repeat;
 }
 .rootcolor_red {
   background: #e54d2e;
@@ -159,7 +160,7 @@
   background: #4cc38a;
 }
 .rootcolor_yellow:active {
-  background: #f0c000;
+  background: #be6f11;
 }
 .rootcolor_red:active {
   background: #f16a50;

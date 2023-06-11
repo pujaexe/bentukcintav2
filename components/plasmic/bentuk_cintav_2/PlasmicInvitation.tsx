@@ -37,7 +37,7 @@ import {
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
 import { GraphCMSFetcher } from "@plasmicpkgs/plasmic-graphcms"; // plasmic-import: 8sYtOZawA08/codeComponent
-import Template1 from "../../Template1"; // plasmic-import: tCLmdV1-a5/component
+import TemplateSelector from "../../TemplateSelector"; // plasmic-import: pbUMAB_a20/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -57,7 +57,7 @@ export const PlasmicInvitation__ArgProps = new Array<ArgPropType>();
 export type PlasmicInvitation__OverridesType = {
   root?: p.Flex<"div">;
   graphCmsFetcher?: p.Flex<typeof GraphCMSFetcher>;
-  template1?: p.Flex<typeof Template1>;
+  templateSelector?: p.Flex<typeof TemplateSelector>;
 };
 
 export interface DefaultInvitationProps {}
@@ -98,25 +98,6 @@ function PlasmicInvitation__RenderFunc(props: {
   const currentUser = p.useCurrentUser?.() || {};
 
   const [$queries, setDollarQueries] = React.useState({});
-
-  const stateSpecs = React.useMemo(
-    () => [
-      {
-        path: "template1.previewPopup",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "template1.clickedImgUrl",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "" as const
-      }
-    ],
-    [$props, $ctx]
-  );
-  const $state = p.useDollarState(stateSpecs, { $props, $ctx, $queries });
 
   return (
     <React.Fragment>
@@ -164,26 +145,26 @@ function PlasmicInvitation__RenderFunc(props: {
                   <div
                     className={classNames(projectcss.all, sty.freeBox__fVjTa)}
                   >
-                    <Template1
-                      data-plasmic-name={"template1"}
-                      data-plasmic-override={overrides.template1}
-                      className={classNames("__wab_instance", sty.template1)}
-                      clickedImgUrl={p.generateStateValueProp($state, [
-                        "template1",
-                        "clickedImgUrl"
-                      ])}
-                      onClickedImgUrlChange={p.generateStateOnChangeProp(
-                        $state,
-                        ["template1", "clickedImgUrl"]
+                    <TemplateSelector
+                      data-plasmic-name={"templateSelector"}
+                      data-plasmic-override={overrides.templateSelector}
+                      className={classNames(
+                        "__wab_instance",
+                        sty.templateSelector
                       )}
-                      onPreviewPopupChange={p.generateStateOnChangeProp(
-                        $state,
-                        ["template1", "previewPopup"]
-                      )}
-                      previewPopup={p.generateStateValueProp($state, [
-                        "template1",
-                        "previewPopup"
-                      ])}
+                      template={(() => {
+                        try {
+                          return $ctx.graphCmsItem.templateUse;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()}
                     />
                   </div>
                 )}
@@ -197,9 +178,9 @@ function PlasmicInvitation__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "graphCmsFetcher", "template1"],
-  graphCmsFetcher: ["graphCmsFetcher", "template1"],
-  template1: ["template1"]
+  root: ["root", "graphCmsFetcher", "templateSelector"],
+  graphCmsFetcher: ["graphCmsFetcher", "templateSelector"],
+  templateSelector: ["templateSelector"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -207,7 +188,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   graphCmsFetcher: typeof GraphCMSFetcher;
-  template1: typeof Template1;
+  templateSelector: typeof TemplateSelector;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -271,7 +252,7 @@ export const PlasmicInvitation = Object.assign(
   {
     // Helper components rendering sub-elements
     graphCmsFetcher: makeNodeComponent("graphCmsFetcher"),
-    template1: makeNodeComponent("template1"),
+    templateSelector: makeNodeComponent("templateSelector"),
 
     // Metadata about props expected for PlasmicInvitation
     internalVariantProps: PlasmicInvitation__VariantProps,

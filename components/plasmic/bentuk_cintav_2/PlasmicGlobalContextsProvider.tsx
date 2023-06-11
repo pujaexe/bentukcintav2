@@ -8,15 +8,18 @@ import * as React from "react";
 import { hasVariant, ensureGlobalVariants } from "@plasmicapp/react-web";
 import { GraphCMSCredentialsProvider } from "@plasmicpkgs/plasmic-graphcms"; // plasmic-import: hNB_eBOLhAQ/codeComponent
 import { AntdConfigProvider } from "@plasmicpkgs/antd5/skinny/registerConfigProvider"; // plasmic-import: DmrLLHGTjGTE/codeComponent
+import { ParallaxProviderWrapper } from "@plasmicpkgs/react-scroll-parallax"; // plasmic-import: L6MfauX2Cw/codeComponent
 
 export interface GlobalContextsProviderProps {
   children?: React.ReactElement;
   graphCMSCredentialsProviderProps?: Partial<
     Omit<React.ComponentProps<typeof GraphCMSCredentialsProvider>, "children">
   >;
-
   antdConfigProviderProps?: Partial<
     Omit<React.ComponentProps<typeof AntdConfigProvider>, "children">
+  >;
+  parallaxProviderWrapperProps?: Partial<
+    Omit<React.ComponentProps<typeof ParallaxProviderWrapper>, "children">
   >;
 }
 
@@ -26,7 +29,8 @@ export default function GlobalContextsProvider(
   const {
     children,
     graphCMSCredentialsProviderProps,
-    antdConfigProviderProps
+    antdConfigProviderProps,
+    parallaxProviderWrapperProps
   } = props;
 
   return (
@@ -112,7 +116,7 @@ export default function GlobalContextsProvider(
             ? antdConfigProviderProps.themeStyles!
             : true
             ? {
-                fontFamily: "Inter",
+                fontFamily: "Poppins",
                 fontSize: "16px",
                 fontWeight: "400",
                 lineHeight: "1.5",
@@ -127,7 +131,17 @@ export default function GlobalContextsProvider(
             : false
         }
       >
-        {children}
+        <ParallaxProviderWrapper
+          {...parallaxProviderWrapperProps}
+          scrollAxis={
+            parallaxProviderWrapperProps &&
+            "scrollAxis" in parallaxProviderWrapperProps
+              ? parallaxProviderWrapperProps.scrollAxis!
+              : ("vertical" as const)
+          }
+        >
+          {children}
+        </ParallaxProviderWrapper>
       </AntdConfigProvider>
     </GraphCMSCredentialsProvider>
   );
