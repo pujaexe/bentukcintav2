@@ -48,6 +48,7 @@ import { Iframe } from "@plasmicpkgs/plasmic-basic-components"; // plasmic-impor
 import Button from "../../Button"; // plasmic-import: 02HmyteR4qq/component
 import WhatsappButton from "../../WhatsappButton"; // plasmic-import: -w4zVRfnGC/component
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal"; // plasmic-import: xx93QbkHH5i/codeComponent
+import ImagePreview from "../../ImagePreview"; // plasmic-import: 01XWUA7Wd5/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources"; // plasmic-import: lP7-syqRi0Vod/codeComponent
 
 import { useScreenVariants as useScreenVariants_7YtAkblAUxFb } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 7Yt-akblAUxFb/globalVariant
@@ -61,10 +62,10 @@ import sty from "./PlasmicTemplate1.module.css"; // plasmic-import: tCLmdV1-a5/c
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: 2oSyQCFheDJ/icon
 import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: XBieVn7nEqJ/icon
 import WhatsappSvgrepoComsvgIcon from "./icons/PlasmicIcon__WhatsappSvgrepoComsvg"; // plasmic-import: 8wYuQ9ltP1/icon
-import CloseCircleSvgrepoComsvgIcon from "./icons/PlasmicIcon__CloseCircleSvgrepoComsvg"; // plasmic-import: LT2cH1PbKL/icon
 import WashingHandsSvgrepoComsvgIcon from "./icons/PlasmicIcon__WashingHandsSvgrepoComsvg"; // plasmic-import: cM9KKnXrjB/icon
 import Mask2SvgrepoComsvgIcon from "./icons/PlasmicIcon__Mask2SvgrepoComsvg"; // plasmic-import: ioPnHlLgy4/icon
 import SocialDistancingSvgrepoComsvgIcon from "./icons/PlasmicIcon__SocialDistancingSvgrepoComsvg"; // plasmic-import: DcuxjPu_O-/icon
+import CloseCircleSvgrepoComsvgIcon from "./icons/PlasmicIcon__CloseCircleSvgrepoComsvg"; // plasmic-import: LT2cH1PbKL/icon
 
 export type PlasmicTemplate1__VariantMembers = {};
 export type PlasmicTemplate1__VariantsArgs = {};
@@ -112,6 +113,7 @@ export type PlasmicTemplate1__OverridesType = {
   part1?: p.Flex<"div">;
   part12?: p.Flex<"div">;
   part13?: p.Flex<"div">;
+  imagePreview?: p.Flex<typeof ImagePreview>;
 };
 
 export interface DefaultTemplate1Props {
@@ -1416,199 +1418,6 @@ function PlasmicTemplate1__RenderFunc(props: {
         }
       />
 
-      {(() => {
-        try {
-          return $state.previewPopup;
-        } catch (e) {
-          if (
-            e instanceof TypeError ||
-            e?.plasmicType === "PlasmicUndefinedDataError"
-          ) {
-            return true;
-          }
-          throw e;
-        }
-      })() ? (
-        <div
-          className={classNames(projectcss.all, sty.freeBox___0C8T9)}
-          onClick={async event => {
-            const $steps = {};
-            $steps["updatePreviewPopup"] = true
-              ? (() => {
-                  const actionArgs = {
-                    variable: __wrapUserFunction(
-                      {
-                        type: "InteractionArgLoc",
-                        actionName: "updateVariable",
-                        interactionUuid: "bpP0WZxxr",
-                        componentUuid: "tCLmdV1-a5",
-                        argName: "variable"
-                      },
-                      () => ({
-                        objRoot: $state,
-                        variablePath: ["previewPopup"]
-                      })
-                    ),
-                    operation: __wrapUserFunction(
-                      {
-                        type: "InteractionArgLoc",
-                        actionName: "updateVariable",
-                        interactionUuid: "bpP0WZxxr",
-                        componentUuid: "tCLmdV1-a5",
-                        argName: "operation"
-                      },
-                      () => 4
-                    )
-                  };
-                  return __wrapUserFunction(
-                    {
-                      type: "InteractionLoc",
-                      actionName: "updateVariable",
-                      interactionUuid: "bpP0WZxxr",
-                      componentUuid: "tCLmdV1-a5"
-                    },
-                    () =>
-                      (({ variable, value, startIndex, deleteCount }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        const oldValue = p.get(objRoot, variablePath);
-                        p.set(objRoot, variablePath, !oldValue);
-                        return !oldValue;
-                      })?.apply(null, [actionArgs]),
-                    actionArgs
-                  );
-                })()
-              : undefined;
-            if (
-              typeof $steps["updatePreviewPopup"] === "object" &&
-              typeof $steps["updatePreviewPopup"].then === "function"
-            ) {
-              $steps["updatePreviewPopup"] = await __wrapUserPromise(
-                {
-                  type: "InteractionLoc",
-                  actionName: "updateVariable",
-                  interactionUuid: "bpP0WZxxr",
-                  componentUuid: "tCLmdV1-a5"
-                },
-                $steps["updatePreviewPopup"]
-              );
-            }
-          }}
-        >
-          <CloseCircleSvgrepoComsvgIcon
-            className={classNames(projectcss.all, sty.svg__iKwfz)}
-            onClick={async event => {
-              const $steps = {};
-              $steps["updatePreviewPopup"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: __wrapUserFunction(
-                        {
-                          type: "InteractionArgLoc",
-                          actionName: "updateVariable",
-                          interactionUuid: "YbAm5jRcS",
-                          componentUuid: "tCLmdV1-a5",
-                          argName: "variable"
-                        },
-                        () => ({
-                          objRoot: $state,
-                          variablePath: ["previewPopup"]
-                        })
-                      ),
-                      operation: __wrapUserFunction(
-                        {
-                          type: "InteractionArgLoc",
-                          actionName: "updateVariable",
-                          interactionUuid: "YbAm5jRcS",
-                          componentUuid: "tCLmdV1-a5",
-                          argName: "operation"
-                        },
-                        () => 4
-                      )
-                    };
-                    return __wrapUserFunction(
-                      {
-                        type: "InteractionLoc",
-                        actionName: "updateVariable",
-                        interactionUuid: "YbAm5jRcS",
-                        componentUuid: "tCLmdV1-a5"
-                      },
-                      () =>
-                        (({ variable, value, startIndex, deleteCount }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          const oldValue = p.get(objRoot, variablePath);
-                          p.set(objRoot, variablePath, !oldValue);
-                          return !oldValue;
-                        })?.apply(null, [actionArgs]),
-                      actionArgs
-                    );
-                  })()
-                : undefined;
-              if (
-                typeof $steps["updatePreviewPopup"] === "object" &&
-                typeof $steps["updatePreviewPopup"].then === "function"
-              ) {
-                $steps["updatePreviewPopup"] = await __wrapUserPromise(
-                  {
-                    type: "InteractionLoc",
-                    actionName: "updateVariable",
-                    interactionUuid: "YbAm5jRcS",
-                    componentUuid: "tCLmdV1-a5"
-                  },
-                  $steps["updatePreviewPopup"]
-                );
-              }
-            }}
-            role={"img"}
-          />
-
-          {(() => {
-            try {
-              return true;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })() ? (
-            <p.PlasmicImg
-              alt={""}
-              className={classNames(sty.img___36Fd)}
-              displayHeight={"auto" as const}
-              displayMaxHeight={"100%" as const}
-              displayMaxWidth={"100%" as const}
-              displayMinHeight={"0" as const}
-              displayMinWidth={"0" as const}
-              displayWidth={"auto" as const}
-              loading={"lazy" as const}
-              src={(() => {
-                try {
-                  return $state.clickedImgUrl;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-            />
-          ) : null}
-        </div>
-      ) : null}
       <AntdModal
         data-plasmic-name={"modal"}
         data-plasmic-override={overrides.modal}
@@ -1804,6 +1613,122 @@ function PlasmicTemplate1__RenderFunc(props: {
           </div>
         </p.Stack>
       </AntdModal>
+      {(() => {
+        try {
+          return $state.previewPopup;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
+          }
+          throw e;
+        }
+      })() ? (
+        <ImagePreview
+          data-plasmic-name={"imagePreview"}
+          data-plasmic-override={overrides.imagePreview}
+          className={classNames("__wab_instance", sty.imagePreview)}
+          slot={
+            <CloseCircleSvgrepoComsvgIcon
+              className={classNames(projectcss.all, sty.svg___0M8Xc)}
+              onClick={async event => {
+                const $steps = {};
+                $steps["updatePreviewPopup"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: __wrapUserFunction(
+                          {
+                            type: "InteractionArgLoc",
+                            actionName: "updateVariable",
+                            interactionUuid: "AiyJB2ZNk",
+                            componentUuid: "tCLmdV1-a5",
+                            argName: "variable"
+                          },
+                          () => ({
+                            objRoot: $state,
+                            variablePath: ["previewPopup"]
+                          })
+                        ),
+                        operation: __wrapUserFunction(
+                          {
+                            type: "InteractionArgLoc",
+                            actionName: "updateVariable",
+                            interactionUuid: "AiyJB2ZNk",
+                            componentUuid: "tCLmdV1-a5",
+                            argName: "operation"
+                          },
+                          () => 4
+                        )
+                      };
+                      return __wrapUserFunction(
+                        {
+                          type: "InteractionLoc",
+                          actionName: "updateVariable",
+                          interactionUuid: "AiyJB2ZNk",
+                          componentUuid: "tCLmdV1-a5"
+                        },
+                        () =>
+                          (({ variable, value, startIndex, deleteCount }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            const oldValue = p.get(objRoot, variablePath);
+                            p.set(objRoot, variablePath, !oldValue);
+                            return !oldValue;
+                          })?.apply(null, [actionArgs]),
+                        actionArgs
+                      );
+                    })()
+                  : undefined;
+                if (
+                  typeof $steps["updatePreviewPopup"] === "object" &&
+                  typeof $steps["updatePreviewPopup"].then === "function"
+                ) {
+                  $steps["updatePreviewPopup"] = await __wrapUserPromise(
+                    {
+                      type: "InteractionLoc",
+                      actionName: "updateVariable",
+                      interactionUuid: "AiyJB2ZNk",
+                      componentUuid: "tCLmdV1-a5"
+                    },
+                    $steps["updatePreviewPopup"]
+                  );
+                }
+              }}
+              role={"img"}
+            />
+          }
+        >
+          <p.PlasmicImg
+            alt={""}
+            className={classNames(sty.img__tYhrs)}
+            displayHeight={"auto" as const}
+            displayMaxHeight={"100%" as const}
+            displayMaxWidth={"100%" as const}
+            displayMinHeight={"0" as const}
+            displayMinWidth={"0" as const}
+            displayWidth={"auto" as const}
+            loading={"lazy" as const}
+            src={(() => {
+              try {
+                return $state.clickedImgUrl;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+          />
+        </ImagePreview>
+      ) : null}
     </div>
   ) as React.ReactElement | null;
 }
@@ -1835,7 +1760,8 @@ const PlasmicDescendants = {
     "modal",
     "part1",
     "part12",
-    "part13"
+    "part13",
+    "imagePreview"
   ],
   hero: ["hero", "desc"],
   desc: ["desc"],
@@ -1876,7 +1802,8 @@ const PlasmicDescendants = {
   modal: ["modal", "part1", "part12", "part13"],
   part1: ["part1"],
   part12: ["part12"],
-  part13: ["part13"]
+  part13: ["part13"],
+  imagePreview: ["imagePreview"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1908,6 +1835,7 @@ type NodeDefaultElementType = {
   part1: "div";
   part12: "div";
   part13: "div";
+  imagePreview: typeof ImagePreview;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1995,6 +1923,7 @@ export const PlasmicTemplate1 = Object.assign(
     part1: makeNodeComponent("part1"),
     part12: makeNodeComponent("part12"),
     part13: makeNodeComponent("part13"),
+    imagePreview: makeNodeComponent("imagePreview"),
 
     // Metadata about props expected for PlasmicTemplate1
     internalVariantProps: PlasmicTemplate1__VariantProps,

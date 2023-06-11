@@ -43,6 +43,8 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostl
 import projectcss from "./plasmic_bentuk_cintav_2.module.css"; // plasmic-import: 62fk78rY9xoShC3bnaKgA9/projectcss
 import sty from "./PlasmicImagePreview.module.css"; // plasmic-import: 01XWUA7Wd5/css
 
+import CloseCircleSvgrepoComsvgIcon from "./icons/PlasmicIcon__CloseCircleSvgrepoComsvg"; // plasmic-import: LT2cH1PbKL/icon
+
 export type PlasmicImagePreview__VariantMembers = {};
 export type PlasmicImagePreview__VariantsArgs = {};
 type VariantPropType = keyof PlasmicImagePreview__VariantsArgs;
@@ -130,59 +132,12 @@ function PlasmicImagePreview__RenderFunc(props: {
         >
           {p.renderPlasmicSlot({
             defaultContents: (
-              <p.PlasmicLink
-                className={classNames(
-                  projectcss.all,
-                  projectcss.a,
-                  projectcss.__wab_text,
-                  sty.link__vYlGu
-                )}
-                component={Link}
-                href={"https://www.plasmic.app/" as const}
-                onClick={async event => {
-                  const $steps = {};
-                  $steps["updateStateVariable"] = true
-                    ? (() => {
-                        const actionArgs = {};
-                        return __wrapUserFunction(
-                          {
-                            type: "InteractionLoc",
-                            actionName: "updateVariable",
-                            interactionUuid: "O-DC7EcMWO",
-                            componentUuid: "01XWUA7Wd5"
-                          },
-                          () =>
-                            (({ variable, value, startIndex, deleteCount }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-                              undefined;
-                            })?.apply(null, [actionArgs]),
-                          actionArgs
-                        );
-                      })()
-                    : undefined;
-                  if (
-                    typeof $steps["updateStateVariable"] === "object" &&
-                    typeof $steps["updateStateVariable"].then === "function"
-                  ) {
-                    $steps["updateStateVariable"] = await __wrapUserPromise(
-                      {
-                        type: "InteractionLoc",
-                        actionName: "updateVariable",
-                        interactionUuid: "O-DC7EcMWO",
-                        componentUuid: "01XWUA7Wd5"
-                      },
-                      $steps["updateStateVariable"]
-                    );
-                  }
-                }}
-                platform={"nextjs"}
-              >
-                {"Close"}
-              </p.PlasmicLink>
+              <CloseCircleSvgrepoComsvgIcon
+                className={classNames(projectcss.all, sty.svg___3X0GP)}
+                role={"img"}
+              />
             ),
+
             value: args.slot
           })}
         </div>
@@ -193,8 +148,8 @@ function PlasmicImagePreview__RenderFunc(props: {
             alt={""}
             className={classNames(sty.img__ikaF2)}
             displayHeight={"auto" as const}
-            displayMaxHeight={"none" as const}
-            displayMaxWidth={"none" as const}
+            displayMaxHeight={"100%" as const}
+            displayMaxWidth={"100%" as const}
             displayMinHeight={"0" as const}
             displayMinWidth={"0" as const}
             displayWidth={"auto" as const}
