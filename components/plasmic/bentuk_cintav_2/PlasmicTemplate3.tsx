@@ -256,7 +256,7 @@ function PlasmicTemplate3__RenderFunc(props: {
         <Embed
           className={classNames("__wab_instance", sty.embedHtml__bxI4)}
           code={
-            'import "slick-carousel/slick/slick.css";\nimport "slick-carousel/slick/slick-theme.css";' as const
+            '<link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" /> \n<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />' as const
           }
         />
       ) : null}
